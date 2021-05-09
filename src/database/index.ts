@@ -1,14 +1,4 @@
-import { Sequelize } from "sequelize";
+import { Options, Sequelize } from "sequelize";
+import databaseConfig from "../config/database";
 
-export default new Sequelize(
-  process.env.DB_NAME || "fidelitas",
-  process.env.DB_USER || "",
-  process.env.DB_PASS,
-  {
-    host: process.env.DB_HOST || "localhost",
-    port: (process.env.DB_PORT || 5432) as number,
-    dialect: "postgres",
-    logging: true,
-    timezone: "+00:00",
-  }
-);
+export default new Sequelize(databaseConfig as Options);
