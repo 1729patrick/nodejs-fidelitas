@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon --delay 500ms",
+    "db:restart": "yarn db:drop && yarn db:create",
     "db:drop": "npx sequelize-cli db:drop",
 		"db:create": "npx sequelize-cli db:create && npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all",
     "db:table": "npx sequelize migration:create",

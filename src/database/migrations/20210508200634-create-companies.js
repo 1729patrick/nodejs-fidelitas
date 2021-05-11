@@ -1,28 +1,31 @@
 module.exports = {
   up: (queryInterface, Sequelize) =>
-    queryInterface.createTable("users", {
+    queryInterface.createTable("companies", {
       id: {
         allowNull: false,
         type: Sequelize.INTEGER,
         primaryKey: true,
         autoIncrement: true,
       },
-      firstName: {
+      name: {
         allowNull: false,
         type: Sequelize.STRING(255),
       },
-      lastName: {
+      address: {
         allowNull: false,
         type: Sequelize.STRING(255),
       },
-      phone: {
-        allowNull: true,
+      postalCode: {
+        allowNull: false,
         type: Sequelize.STRING(50),
       },
       email: {
         allowNull: false,
         type: Sequelize.STRING(50),
-        unique: true,
+      },
+      city: {
+        allowNull: false,
+        type: Sequelize.STRING(50),
       },
       password: {
         allowNull: false,
@@ -32,38 +35,11 @@ module.exports = {
         allowNull: false,
         type: Sequelize.STRING(255),
       },
-      roleId: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-        references: {
-          model: "roles",
-          key: "id",
-        },
-        onUpdate: "cascade",
-      },
       countryId: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
           model: "countries",
-          key: "id",
-        },
-        onUpdate: "cascade",
-      },
-      companyId: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-        references: {
-          model: "companies",
-          key: "id",
-        },
-        onUpdate: "cascade",
-      },
-      roleId: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-        references: {
-          model: "roles",
           key: "id",
         },
         onUpdate: "cascade",
@@ -77,5 +53,5 @@ module.exports = {
         type: Sequelize.DATE,
       },
     }),
-  down: (queryInterface) => queryInterface.dropTable("users"),
+  down: (queryInterface) => queryInterface.dropTable("companies"),
 };
