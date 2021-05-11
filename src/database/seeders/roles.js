@@ -3,7 +3,7 @@
 module.exports = {
   up: (queryInterface) => {
     return queryInterface.bulkInsert(
-      "roles",
+      "role",
       [
         {
           name: "admin",
@@ -21,6 +21,6 @@ module.exports = {
   },
 
   down: (queryInterface) => {
-    return queryInterface.bulkDelete("roles", null, {});
+    return queryInterface.bulkDelete("role", null, {});
   },
 };

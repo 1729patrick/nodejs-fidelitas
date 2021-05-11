@@ -1,6 +1,6 @@
 module.exports = {
   up: (queryInterface, Sequelize) =>
-    queryInterface.createTable("users", {
+    queryInterface.createTable("user", {
       id: {
         allowNull: false,
         type: Sequelize.INTEGER,
@@ -36,7 +36,7 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
-          model: "roles",
+          model: "role",
           key: "id",
         },
         onUpdate: "cascade",
@@ -45,7 +45,7 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
-          model: "countries",
+          model: "country",
           key: "id",
         },
         onUpdate: "cascade",
@@ -54,7 +54,7 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
-          model: "companies",
+          model: "company",
           key: "id",
         },
         onUpdate: "cascade",
@@ -63,7 +63,7 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
-          model: "roles",
+          model: "role",
           key: "id",
         },
         onUpdate: "cascade",
@@ -71,11 +71,13 @@ module.exports = {
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
+        defaultValue: Sequelize.fn("now"),
       },
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE,
+        defaultValue: Sequelize.fn("now"),
       },
     }),
-  down: (queryInterface) => queryInterface.dropTable("users"),
+  down: (queryInterface) => queryInterface.dropTable("user"),
 };

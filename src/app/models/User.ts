@@ -27,7 +27,8 @@ interface UserCreationAttributes extends Optional<UserAttributes, "id"> {}
 
 class User
   extends Model<UserAttributes, UserCreationAttributes>
-  implements UserAttributes {
+  implements UserAttributes
+{
   public id!: number; // Note that the `null assertion` `!` is required in strict mode.
   public firstName!: string;
   public lastName!: string;
@@ -71,7 +72,7 @@ User.init(
     },
   },
   {
-    tableName: "users",
+    tableName: "user",
     sequelize, // passing the `sequelize` instance is required
   }
 );

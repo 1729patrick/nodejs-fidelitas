@@ -1,45 +1,41 @@
 module.exports = {
   up: (queryInterface, Sequelize) =>
-    queryInterface.createTable("companies", {
+    queryInterface.createTable("promotion", {
       id: {
         allowNull: false,
         type: Sequelize.INTEGER,
         primaryKey: true,
         autoIncrement: true,
       },
-      name: {
+      title: {
         allowNull: false,
         type: Sequelize.STRING(255),
       },
-      address: {
+      description: {
         allowNull: false,
         type: Sequelize.STRING(255),
       },
-      postalCode: {
-        allowNull: false,
-        type: Sequelize.STRING(50),
+      pointCost: {
+        allowNull: true,
+        type: Sequelize.INTEGER,
       },
-      email: {
-        allowNull: false,
-        type: Sequelize.STRING(50),
+      visitCost: {
+        allowNull: true,
+        type: Sequelize.INTEGER,
       },
-      city: {
+      startDate: {
         allowNull: false,
-        type: Sequelize.STRING(50),
+        type: Sequelize.DATE,
       },
-      password: {
+      endDate: {
         allowNull: false,
-        type: Sequelize.STRING(255),
+        type: Sequelize.DATE,
       },
-      taxNumber: {
-        allowNull: false,
-        type: Sequelize.STRING(255),
-      },
-      countryId: {
+      companyId: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
-          model: "countries",
+          model: "company",
           key: "id",
         },
         onUpdate: "cascade",
@@ -47,11 +43,13 @@ module.exports = {
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
+        defaultValue: Sequelize.fn("now"),
       },
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE,
+        defaultValue: Sequelize.fn("now"),
       },
     }),
-  down: (queryInterface) => queryInterface.dropTable("companies"),
+  down: (queryInterface) => queryInterface.dropTable("promotion"),
 };

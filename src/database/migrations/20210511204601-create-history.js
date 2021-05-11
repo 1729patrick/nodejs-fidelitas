@@ -1,41 +1,36 @@
 module.exports = {
   up: (queryInterface, Sequelize) =>
-    queryInterface.createTable("promotions", {
+    queryInterface.createTable("history", {
       id: {
         allowNull: false,
         type: Sequelize.INTEGER,
         primaryKey: true,
         autoIncrement: true,
       },
-      title: {
-        allowNull: false,
-        type: Sequelize.STRING(255),
-      },
-      description: {
-        allowNull: false,
-        type: Sequelize.STRING(255),
-      },
-      pointCost: {
+      point: {
         allowNull: true,
         type: Sequelize.INTEGER,
+        defaultValue: 0,
       },
-      visitCost: {
+      visit: {
         allowNull: true,
         type: Sequelize.INTEGER,
+        defaultValue: 0,
       },
-      startDate: {
+      userId: {
+        type: Sequelize.INTEGER,
         allowNull: false,
-        type: Sequelize.DATE,
-      },
-      endDate: {
-        allowNull: false,
-        type: Sequelize.DATE,
+        references: {
+          model: "user",
+          key: "id",
+        },
+        onUpdate: "cascade",
       },
       companyId: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
-          model: "companies",
+          model: "company",
           key: "id",
         },
         onUpdate: "cascade",
@@ -43,11 +38,13 @@ module.exports = {
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
+        defaultValue: Sequelize.fn("now"),
       },
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE,
+        defaultValue: Sequelize.fn("now"),
       },
     }),
-  down: (queryInterface) => queryInterface.dropTable("promotions"),
+  down: (queryInterface) => queryInterface.dropTable("history"),
 };
