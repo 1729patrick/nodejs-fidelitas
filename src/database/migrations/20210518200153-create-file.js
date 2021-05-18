@@ -1,35 +1,19 @@
 module.exports = {
   up: (queryInterface, Sequelize) =>
-    queryInterface.createTable("promotion", {
+    queryInterface.createTable("file", {
       id: {
         allowNull: false,
         type: Sequelize.INTEGER,
         primaryKey: true,
         autoIncrement: true,
       },
-      title: {
+      name: {
+        type: Sequelize.STRING,
         allowNull: false,
-        type: Sequelize.STRING(255),
       },
-      description: {
+      path: {
+        type: Sequelize.STRING,
         allowNull: false,
-        type: Sequelize.STRING(255),
-      },
-      pointCost: {
-        allowNull: true,
-        type: Sequelize.INTEGER,
-      },
-      visitCost: {
-        allowNull: true,
-        type: Sequelize.INTEGER,
-      },
-      startDate: {
-        allowNull: false,
-        type: Sequelize.DATE,
-      },
-      endDate: {
-        allowNull: false,
-        type: Sequelize.DATE,
       },
       companyId: {
         type: Sequelize.INTEGER,
@@ -45,7 +29,7 @@ module.exports = {
         type: Sequelize.DATE,
         defaultValue: Sequelize.fn("now"),
       },
-      createdBy: {
+      updatedBy: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
@@ -59,7 +43,7 @@ module.exports = {
         type: Sequelize.DATE,
         defaultValue: Sequelize.fn("now"),
       },
-      updatedBy: {
+      createdBy: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
@@ -69,5 +53,5 @@ module.exports = {
         onUpdate: "cascade",
       },
     }),
-  down: (queryInterface) => queryInterface.dropTable("promotion"),
+  down: (queryInterface) => queryInterface.dropTable("file"),
 };

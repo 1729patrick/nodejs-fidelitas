@@ -1,6 +1,6 @@
 module.exports = {
   up: (queryInterface, Sequelize) =>
-    queryInterface.createTable("promotion", {
+    queryInterface.createTable("product", {
       id: {
         allowNull: false,
         type: Sequelize.INTEGER,
@@ -8,28 +8,12 @@ module.exports = {
         autoIncrement: true,
       },
       title: {
+        type: Sequelize.STRING,
         allowNull: false,
-        type: Sequelize.STRING(255),
       },
       description: {
+        type: Sequelize.STRING,
         allowNull: false,
-        type: Sequelize.STRING(255),
-      },
-      pointCost: {
-        allowNull: true,
-        type: Sequelize.INTEGER,
-      },
-      visitCost: {
-        allowNull: true,
-        type: Sequelize.INTEGER,
-      },
-      startDate: {
-        allowNull: false,
-        type: Sequelize.DATE,
-      },
-      endDate: {
-        allowNull: false,
-        type: Sequelize.DATE,
       },
       companyId: {
         type: Sequelize.INTEGER,
@@ -69,5 +53,5 @@ module.exports = {
         onUpdate: "cascade",
       },
     }),
-  down: (queryInterface) => queryInterface.dropTable("promotion"),
+  down: (queryInterface) => queryInterface.dropTable("product"),
 };

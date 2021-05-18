@@ -33,7 +33,7 @@ module.exports = {
       },
       taxNumber: {
         allowNull: false,
-        type: Sequelize.STRING(255),
+        type: Sequelize.STRING(12),
       },
       countryId: {
         type: Sequelize.INTEGER,
@@ -49,10 +49,28 @@ module.exports = {
         type: Sequelize.DATE,
         defaultValue: Sequelize.fn("now"),
       },
+      createdBy: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: "user",
+          key: "id",
+        },
+        onUpdate: "cascade",
+      },
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE,
         defaultValue: Sequelize.fn("now"),
+      },
+      updatedBy: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: "user",
+          key: "id",
+        },
+        onUpdate: "cascade",
       },
     }),
   down: (queryInterface) => queryInterface.dropTable("company"),

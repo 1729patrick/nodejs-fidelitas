@@ -1,48 +1,54 @@
 module.exports = {
   up: (queryInterface, Sequelize) =>
-    queryInterface.createTable("country", {
+    queryInterface.createTable("user", {
       id: {
         allowNull: false,
         type: Sequelize.INTEGER,
         primaryKey: true,
         autoIncrement: true,
       },
-      name: {
+      email: {
+        allowNull: false,
+        type: Sequelize.STRING(50),
+        unique: true,
+      },
+      phone: {
+        allowNull: true,
+        type: Sequelize.STRING(50),
+        unique: true,
+      },
+      password: {
         allowNull: false,
         type: Sequelize.STRING(255),
       },
-      code: {
+      firstName: {
         allowNull: false,
-        type: Sequelize.STRING(2),
+        type: Sequelize.STRING(255),
+      },
+      lastName: {
+        allowNull: false,
+        type: Sequelize.STRING(255),
       },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
         defaultValue: Sequelize.fn("now"),
       },
-      createdBy: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-        references: {
-          model: "user",
-          key: "id",
-        },
-        onUpdate: "cascade",
-      },
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE,
         defaultValue: Sequelize.fn("now"),
       },
-      updatedBy: {
+      roleId: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
-          model: "user",
+          model: "role",
           key: "id",
         },
         onUpdate: "cascade",
+        onDelete: "set null",
       },
     }),
-  down: (queryInterface) => queryInterface.dropTable("country"),
+  down: (queryInterface) => queryInterface.dropTable("user"),
 };
