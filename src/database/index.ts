@@ -1,4 +1,12 @@
-import { Options, Sequelize } from "sequelize";
-import databaseConfig from "../config/database";
+"use strict";
 
-export default new Sequelize(databaseConfig as Options);
+import knex from "knex";
+import knexfile from "../../knexfile";
+
+const env = process.env.NODE_ENV || "development";
+
+const database = knex(
+  knexfile[env as "development" | "production" | "staging"]
+);
+
+export default database;
