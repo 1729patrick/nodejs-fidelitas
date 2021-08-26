@@ -14,6 +14,8 @@ declare global {
       DB_PASS?: string;
       DB_HOST?: string;
       DB_PORT?: number;
+      SECRET?: string;
+      EXPIRE_IN?: string;
     }
   }
 }
