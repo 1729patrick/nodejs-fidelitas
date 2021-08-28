@@ -1,7 +1,9 @@
 import { Knex } from "knex";
+import onUpdateTrigger from "../../helpers/onUpdateTrigger";
 
+const tableName = "purchases";
 export async function up(knex: Knex): Promise<void> {
-  return knex.schema.table("purchases", (t) => {
+  return knex.schema.table(tableName, (t) => {
     t.foreign("userId").references("users.id");
     t.foreign("paymentId").references("payments.id");
     t.foreign("addressId").references("addresses.id");
@@ -10,7 +12,7 @@ export async function up(knex: Knex): Promise<void> {
 }
 
 export async function down(knex: Knex): Promise<void> {
-  return knex.schema.table("purchases", (t) => {
+  return knex.schema.table(tableName, (t) => {
     t.dropForeign("userId");
     t.dropForeign("paymentId");
     t.dropForeign("addressId");
