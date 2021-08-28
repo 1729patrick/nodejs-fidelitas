@@ -7,6 +7,7 @@
     "start": "nodemon --delay 500ms",
     "db:restart": "yarn db:drop && yarn db:create",
     "db:migrate": "npx knex migrate:latest",
+    "db:rollback": "npx knex migrate:rollback",
     "db:seed": "npx knex seed:run",
     "prettify": "./node_modules/.bin/tsfmt -r --baseDir ./src"
   },

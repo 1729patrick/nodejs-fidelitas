@@ -12,7 +12,7 @@ export default {
       password: process.env.DATABASE_PASSWORD,
     },
     migrations: {
-      tableName: "knex_migrations",
+      tableName: "migrations",
       directory: `${__dirname}/src/database/migrations`,
     },
     seeds: {
@@ -31,7 +31,7 @@ export default {
       max: 10,
     },
     migrations: {
-      tableName: "knex_migrations",
+      tableName: "migrations",
       directory: `${__dirname}/src/database/migrations`,
     },
     seeds: {
@@ -50,7 +50,7 @@ export default {
       max: 10,
     },
     migrations: {
-      tableName: "knex_migrations",
+      tableName: "migrations",
       directory: `${__dirname}/src/database/migrations`,
     },
     seeds: {
