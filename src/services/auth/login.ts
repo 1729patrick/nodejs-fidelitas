@@ -2,24 +2,28 @@ import { NextFunction, Request, Response } from "express";
 import jwt from "jsonwebtoken";
 import verifyUser from "../../data/auth/verifyUser";
 import { Error } from "../../types/error";
+import { User } from "../../types/models/user";
 import { LoginBody } from "../../types/requests/auth/login";
 
-export default async (req: Request, res: Response) => {
-  const { password, type, email, restaurantId } = req.body as LoginBody;
-  const user = await verifyUser(email, type, password, restaurantId);
+export default async (req: Request<any, any, LoginBody>, res: Response) => {
+  try {
+    const { password, type, email, restaurantId } = req.body;
 
-  if ((user as Error).error) {
-    return res.status(400).json(user);
+    let user = await verifyUser(email, type, password, restaurantId);
+
+    const token = jwt.sign(
+      { userId: user.id, restaurantId: user.restaurantId, userType: user.type },
+      process.env?.SECRET || "fidelitas",
+      {
+        expiresIn: process.env.EXPIRE_IN,
+      }
+    );
+
+    //@ts-ignore
+    delete user.password;
+
+    return res.json({ user, token });
+  } catch (err) {
+    return res.boom.badRequest(err.message);
   }
-
-  const token = jwt.sign(
-    { userId: user.id, restaurantId: user.restaurantId, userType: user.type },
-    process.env?.SECRET || "fidelitas",
-    {
-      expiresIn: process.env.EXPIRE_IN,
-    }
-  );
-
-  delete user.password;
-  return res.json({ user, token });
 };

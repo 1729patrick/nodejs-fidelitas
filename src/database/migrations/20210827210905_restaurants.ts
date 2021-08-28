@@ -6,9 +6,10 @@ export async function up(knex: Knex): Promise<void> {
   return knex.schema
     .createTable(tableName, (t) => {
       t.increments("id").primary().unsigned();
-      t.string("title").notNullable();
+      t.string("name").notNullable();
       t.string("description").notNullable();
-      t.integer("addressId").notNullable().index();
+      t.integer("addressId").notNullable();
+      t.integer("workHoursId").notNullable();
       t.timestamp("createdAt").defaultTo(knex.fn.now());
       t.timestamp("updatedAt").defaultTo(knex.fn.now());
     })

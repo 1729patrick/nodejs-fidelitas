@@ -8,8 +8,8 @@ export async function up(knex: Knex): Promise<void> {
       t.increments("id").primary().unsigned();
       t.double("lat");
       t.double("long");
-      t.string("address1").notNullable();
-      t.string("address2");
+      t.string("line1").notNullable();
+      t.string("line2");
       t.string("postalCode").notNullable();
       t.string("city").notNullable();
       t.string("responsible").notNullable();
@@ -17,7 +17,6 @@ export async function up(knex: Knex): Promise<void> {
       t.string("notes");
       t.boolean("primary").defaultTo(false).notNullable();
       t.integer("userId");
-      t.integer("restaurantId");
       t.timestamp("createdAt").defaultTo(knex.fn.now());
       t.timestamp("updatedAt").defaultTo(knex.fn.now());
     })
