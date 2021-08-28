@@ -1,4 +1,8 @@
+import { UserType } from "../../models/user";
+
 export type LoginBody {
-  username: string;
+  email: string;
   password: string;
+  type: UserType;
+  restaurantId: number;
 }

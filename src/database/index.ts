@@ -10,6 +10,6 @@ const database = knex(
   knexfile[env as "development" | "production" | "staging"]
 );
 
-export const Users = database<User>("users");
+export const Users = () => database<User>("users");
 
 export default database;

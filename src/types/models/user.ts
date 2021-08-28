@@ -1,9 +1,14 @@
+export type UserType = "client" | "admin";
+
 export type User = {
   id: number;
-  username: string;
+  firstName: string;
+  lastName: string;
   password: string;
-  email: string;
+  type: "client" | "admin";
   phone: string;
+  email: string;
+  restaurantId: number;
   createdAt: string;
   updatedAt: string;
 };

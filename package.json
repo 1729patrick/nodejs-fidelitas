@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon --delay 500ms",
-    "db:restart": "yarn db:drop && yarn db:create",
+    "db:restart": "yarn db:rollback && yarn db:migrate && yarn db:seed",
     "db:migrate": "npx knex migrate:latest",
     "db:rollback": "npx knex migrate:rollback",
     "db:seed": "npx knex seed:run",
@@ -16,6 +16,7 @@
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
+    "celebrate": "^15.0.0",
     "cors": "^2.8.5",
     "dotenv": "^9.0.0",
     "express": "^4.17.1",
@@ -26,7 +27,8 @@
     "morgan": "^1.10.0",
     "npm": "^7.21.0",
     "pg": "^8.6.0",
-    "winston": "^3.3.3"
+    "winston": "^3.3.3",
+    "youch": "^2.2.2"
   },
   "devDependencies": {
     "@types/bcryptjs": "^2.4.2",

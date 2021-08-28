@@ -16,8 +16,8 @@ export async function up(knex: Knex): Promise<void> {
       t.string("phone").notNullable();
       t.string("notes");
       t.boolean("primary").defaultTo(false).notNullable();
-      t.integer("userId").notNullable().index();
-      t.integer("restaurantId").notNullable().index();
+      t.integer("userId");
+      t.integer("restaurantId");
       t.timestamp("createdAt").defaultTo(knex.fn.now());
       t.timestamp("updatedAt").defaultTo(knex.fn.now());
     })
