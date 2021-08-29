@@ -1,13 +1,14 @@
 import { Knex } from "knex";
 import onUpdateTrigger from "../../helpers/onUpdateTrigger";
 
-const tableName = "images";
+const tableName = "files";
 export async function up(knex: Knex): Promise<void> {
   return knex.schema
     .createTable(tableName, (t) => {
       t.increments("id").primary().unsigned();
-      t.string("path").notNullable();
-      t.string("name").notNullable();
+      t.string("originalName").notNullable();
+      t.string("bucketName").notNullable();
+      t.string("fileName").notNullable();
       t.timestamp("createdAt").defaultTo(knex.fn.now());
       t.timestamp("updatedAt").defaultTo(knex.fn.now());
     })

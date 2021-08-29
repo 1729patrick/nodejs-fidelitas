@@ -16,6 +16,10 @@ declare global {
       DB_PORT?: number;
       SECRET?: string;
       EXPIRE_IN?: string;
+      GOOGLE_APPLICATION_CREDENTIALS?: string;
+      PRODUCTS_BUCKET?: string;
+      PROFILES_BUCKET?: string;
+      GENERAL_BUCKET: ?string;
     }
   }
 }

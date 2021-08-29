@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "fidelitas-315620",
+  "private_key_id": "49e809c558d82920a23b21116a2ececbb4b4ff3e",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQDpjTsPWp6tFmIq\nDpspd6DgwsryQUBn7nU5ZkWWXrA6AqlcT2Ym3hI8Jko4V4l5j9uyHComO8vm149A\nb44BAQ4ReWnPVfx+Ox13DaMqoif91ensxOyozjdBxCJ20PNXz/FBnKhOAT/M/oHt\nUDa6Au2owpY6uv5YG64P5WzcvTlNooghVi6VomjPDOL9IucZJjzUh61qwVIU0N0o\nRkwP3rz1QJ23sv8o/0eGeMfd2obOJxS4SuXXED+7r5cbSrBV79OxPvBON19QRO2d\nv8gCaHjxKWG2RyMDqlcrBX2dMZwT9Nfiqj/kY36tWGnbenxuML0uMNPJC8r9gLt4\nbSiz/nRFAgMBAAECggEAJRa8C86oxzT4RtSF+HpabocQopMRLtAUBpcCswP7eWLl\n0VZ8kuyOOcYc4ECqgMcDLRBC80posZKG2cU9aFRqDwVYc8gkbkll/vuH72PL9QgM\n+4A0UwRYixWiIXtCQa4wkmpV4flZz+yU5oJoBncjlbq9D7uVW5mdtUGKXa2hFX5N\n9Yd0PREpfw2hOUWmfbfkGMAT+TlC2MPnoZzxn18JnQRfl2PnajbusphTPyncoKz9\n4xJuw8YvyBjM/XAxcrL5TO3GuF7nmWw4PpjxOByDG159vPeKUOu8K6KbRdDCjtY3\nXM4TREYl39dPo7J1YqF1slQ+s2jAgV0NUvbDIdtTCwKBgQD0kUMLOPFqIBvcSqIP\n5iDW5zN9bmF+iGpSp/0L2EHNvIbJ/3R0geJ7acLHhEYjTeO+dZuhdvMHxN5VsCQs\nQ50nOMQRxL6SCYe3dppczSgSy5kZRlSFecp2tt8tw8BV0NopnxDJ0swBZDv3nuVC\n1gjW0ZImGuOLVjEfId0j4ecHIwKBgQD0eCS04ZhMGWJ9AIe1jY49ScymHvPtU3za\nh3RaOLQkiR+ldRSepdMqmnQbsMNphspwH5NwWdfKVnacb68om53bPtVfZoP7c0o2\noxbP8kQ39Izl7Lytluj2no+9XCp2APd6AX6sL+9fhdBEjwHYna6NNnuNYTqvyphK\nyMRvHdEBdwKBgHAJx+PxPy817G17x0hvTWYF3qG8mm9EASlCifsOI/8jOcB6BZiG\nFAIjjjamkxcDTKzo5dYPTwClIJGysq+QfgMEz1WwgvkV4pWagNa4qX4KxWU9weSv\nyZ+e4RjvD0KA/iCJHUDID+snRw2GPlLjCIOY2FIaiVlAsBoqAku45oRvAoGAGror\n4S6s1N0NnHb7X0j7nQ29dwf5SSAQjV+zw81hPIFVWWSEfZfJj2XVfdWEd7wJ09pP\n5z+bTP7I9u9q6fiheH/VGhn+IfaHzZNlAhUNikSNRvHr6tqN27CYLG6wIbiXVdpl\n+/M9q2bYzzYHUKRkmgGz3lAb924h2kM63p8W458CgYAkKuxNcWVZ5EDlxEeRGqSX\noLpU5+O+IM9HAYpSRHLuPOuWYhthbU4CvI2HEOFcRFmskGBDm39J8vslbfqCmOd2\nKLyLj7qp4ypDQFUERxFZt3hKovRIFi86iCEY+8wg4uOvMWz0Yiz8fOtWfGMbfFBa\na8rsHM+uQLycCPGp3rQTmA==\n-----END PRIVATE KEY-----\n",
+  "client_email": "server@fidelitas-315620.iam.gserviceaccount.com",
+  "client_id": "115995607089065408433",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/server%40fidelitas-315620.iam.gserviceaccount.com"
+}
