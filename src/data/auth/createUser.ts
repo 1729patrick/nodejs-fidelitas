@@ -1,7 +1,7 @@
 import { Users } from "../../database";
 import bcrypt from "bcryptjs";
-import { User } from "../../types/models/user";
-import { ErrorType } from "../../types/error";
+import { User } from "../../../types/models/user";
+import { ErrorType } from "../../../types/error";
 
 export default async (user: User): Promise<number> => {
   const checkEmail = await Users().where({ email: user.email }).first();

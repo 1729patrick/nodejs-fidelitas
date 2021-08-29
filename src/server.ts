@@ -18,9 +18,12 @@ export class Server {
     this.app = express();
 
     this.app.use(cors({ optionsSuccessStatus: 200 }));
+    //@ts-ignore
     this.app.use(urlencoded({ extended: true }));
+    //@ts-ignore
     this.app.use(json());
     this.app.use(boom());
+    //@ts-ignore
     this.app.use(morgan("combined"));
 
     this.app.listen(PORT, () => {

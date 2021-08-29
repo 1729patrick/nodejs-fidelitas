@@ -6,13 +6,13 @@ export async function up(knex: Knex): Promise<void> {
   return knex.schema
     .createTable(tableName, (t) => {
       t.increments("id").primary().unsigned();
-      t.string("sunday").notNullable();
-      t.string("monday").notNullable();
-      t.string("tuesday").notNullable();
-      t.string("wednesday").notNullable();
-      t.string("thursday").notNullable();
-      t.string("friday").notNullable();
-      t.string("saturday").notNullable();
+      t.jsonb("sunday").notNullable();
+      t.jsonb("monday").notNullable();
+      t.jsonb("tuesday").notNullable();
+      t.jsonb("wednesday").notNullable();
+      t.jsonb("thursday").notNullable();
+      t.jsonb("friday").notNullable();
+      t.jsonb("saturday").notNullable();
       t.timestamp("createdAt").defaultTo(knex.fn.now());
       t.timestamp("updatedAt").defaultTo(knex.fn.now());
     })

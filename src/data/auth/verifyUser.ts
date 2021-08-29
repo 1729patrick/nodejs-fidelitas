@@ -1,7 +1,7 @@
 import { Users } from "../../database";
 import bcrypt from "bcryptjs";
-import { User, UserType } from "../../types/models/user";
-import { ErrorType } from "../../types/error";
+import { User, UserType } from "../../../types/models/user";
+import { ErrorType } from "../../../types/error";
 
 export default async (
   email: string,

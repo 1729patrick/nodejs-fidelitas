@@ -1,8 +1,8 @@
 import database, { Restaurants } from "../../database";
-import { ErrorType } from "../../types/error";
-import { Restaurant } from "../../types/models/restaurant";
+import { ErrorType } from "../../../types/error";
+import { Restaurant } from "../../../types/models/restaurant";
 
-export default async (id: number): Promise<Restaurant | any> => {
+export default async (id: number): Promise<Restaurant> => {
   const restaurant = await Restaurants()
     .where("restaurants.id", id)
     .select(
@@ -42,8 +42,7 @@ export default async (id: number): Promise<Restaurant | any> => {
       "restaurantFacilities.facilityId"
     )
     .groupBy("restaurants.id", "addresses.*", "workHours.*")
-    .debug(true);
-  // .first();
+    .first();
 
   if (!restaurant) {
     throw new Error(ErrorType.RestaurantNotFound);

@@ -1,9 +1,7 @@
 import { NextFunction, Request, Response } from "express";
 import jwt from "jsonwebtoken";
 import verifyUser from "../../data/auth/verifyUser";
-import { Error } from "../../types/error";
-import { User } from "../../types/models/user";
-import { LoginBody } from "../../types/requests/auth/login";
+import { LoginBody } from "../../../types/requests/auth/login";
 
 export default async (req: Request<any, any, LoginBody>, res: Response) => {
   try {

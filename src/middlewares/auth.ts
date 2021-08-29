@@ -1,7 +1,7 @@
 import { NextFunction, Request, Response } from "express";
 import jwt from "jsonwebtoken";
 import { promisify } from "util";
-import { ErrorType } from "../types/error";
+import { ErrorType } from "../../types/error";
 
 export default async (req: Request, res: Response, next: NextFunction) => {
   const authHeader = req.headers.authorization;
@@ -13,13 +13,14 @@ export default async (req: Request, res: Response, next: NextFunction) => {
 
   try {
     //@ts-ignore
-    const decoded = await promisify(jwt.verify)(token, process.env.SECRET);
+    const decoded = (await promisify(jwt.verify)(
+      token,
+      //@ts-ignore
+      process.env.SECRET
+    )) as Request;
 
-    //@ts-ignore
     req.userId = decoded.userId;
-    //@ts-ignore
     req.restaurantId = decoded.restaurantId;
-    //@ts-ignore
     req.userType = decoded.userType;
 
     return next();

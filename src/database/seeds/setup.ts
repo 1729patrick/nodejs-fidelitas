@@ -8,13 +8,42 @@ export async function seed(knex: Knex): Promise<void> {
   // Inserts seed entries
   await knex("workHours").insert([
     {
-      sunday: "11:20 às 13:50, 18:30 às 22:00",
-      monday: "11:20 às 13:50, 18:30 às 22:00",
-      tuesday: "11:20 às 13:50, 18:30 às 22:00",
-      wednesday: "11:20 às 13:50, 18:30 às 22:00",
-      thursday: "11:20 às 13:50, 18:30 às 22:00",
-      friday: "11:20 às 13:50, 18:30 às 22:00",
-      saturday: "11:20 às 13:50, 18:30 às 22:00",
+      sunday: {
+        breakfast: "06:30 às 09:30",
+        lunch: "11:20 às 13:50",
+        dinner: "18:30 às 22:00",
+      },
+
+      monday: {
+        breakfast: "06:30 às 09:30",
+        lunch: "11:20 às 13:50",
+        dinner: "18:30 às 22:00",
+      },
+      tuesday: {
+        breakfast: "06:30 às 09:30",
+        lunch: "11:20 às 13:50",
+        dinner: "18:30 às 22:00",
+      },
+      wednesday: {
+        breakfast: "06:30 às 09:30",
+        lunch: "11:20 às 13:50",
+        dinner: "18:30 às 22:00",
+      },
+      thursday: {
+        breakfast: "06:30 às 09:30",
+        lunch: "11:20 às 13:50",
+        dinner: "18:30 às 22:00",
+      },
+      friday: {
+        breakfast: "06:30 às 09:30",
+        lunch: "11:20 às 13:50",
+        dinner: "18:30 às 22:00",
+      },
+      saturday: {
+        breakfast: "06:30 às 09:30",
+        lunch: "11:20 às 13:50",
+        dinner: "18:30 às 22:00",
+      },
     },
   ]);
 
@@ -103,5 +132,38 @@ export async function seed(knex: Knex): Promise<void> {
     { restaurantId: 1, facilityId: 3 },
     { restaurantId: 1, facilityId: 4 },
     { restaurantId: 1, facilityId: 5 },
+  ]);
+
+  await knex("products").del();
+
+  // Inserts seed entries
+  await knex("products").insert([
+    {
+      title: "Pastel de bacalhau",
+      description: "O melhor pastel de bacalhau",
+      ingredients: "Farinha de trigo, aminoácidos, conservantes vegetais",
+      allergens: "Gluten",
+      price: 10.49,
+      type: "side",
+      restaurantId: 1,
+    },
+    {
+      title: "Pastel de carne",
+      description: "O melhor pastel de carne",
+      ingredients: "Farinha de trigo, aminoácidos, conservantes vegetais",
+      allergens: "Gluten",
+      price: 10.49,
+      type: "side",
+      restaurantId: 1,
+    },
+    {
+      title: "Pastel de frango",
+      description: "O melhor pastel de frango",
+      ingredients: "Farinha de trigo, aminoácidos, conservantes vegetais",
+      allergens: "Gluten",
+      price: 10.49,
+      type: "side",
+      restaurantId: 1,
+    },
   ]);
 }

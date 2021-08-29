@@ -5,7 +5,7 @@ export type User = {
   firstName: string;
   lastName: string;
   password: string;
-  type: "client" | "admin";
+  type: UserType;
   phone: string;
   email: string;
   restaurantId: number;
