@@ -136,6 +136,16 @@ export async function seed(knex: Knex): Promise<void> {
 
   await knex("products").del();
 
+  await knex("files").del();
+
+  await knex("files").insert([
+    {
+      originalName: "background_home.jpg",
+      bucketName: "fidelitas-general",
+      fileName: "8d1b5d1262bec8042b17d4d2e14cdcbd.jpg",
+    },
+  ]);
+
   // Inserts seed entries
   await knex("products").insert([
     {
@@ -146,6 +156,7 @@ export async function seed(knex: Knex): Promise<void> {
       price: 10.49,
       type: "side",
       restaurantId: 1,
+      imageId: 1,
     },
     {
       title: "Pastel de carne",
@@ -155,6 +166,7 @@ export async function seed(knex: Knex): Promise<void> {
       price: 10.49,
       type: "side",
       restaurantId: 1,
+      imageId: 1,
     },
     {
       title: "Pastel de frango",
@@ -163,6 +175,39 @@ export async function seed(knex: Knex): Promise<void> {
       allergens: "Gluten",
       price: 10.49,
       type: "side",
+      restaurantId: 1,
+      imageId: 1,
+    },
+  ]);
+
+  await knex("achievements").del();
+
+  await knex("achievements").insert([
+    {
+      title: "Critico do bacalhau",
+      description: "Nos conte o que achou sobre o pedido feito pela aplicação",
+      type: "product",
+      reward: "Pastel de Frango",
+      rewardValue: 1,
+      cost: 10,
+      restaurantId: 1,
+    },
+    {
+      title: "Critico do bacalhau",
+      description: "Nos conte o que achou sobre o pedido feito pela aplicação",
+      type: "cash",
+      reward: "10 €",
+      rewardValue: 10,
+      cost: 5,
+      restaurantId: 1,
+    },
+    {
+      title: "Critico do bacalhau",
+      description: "Nos conte o que achou sobre o pedido feito pela aplicação",
+      type: "discount",
+      reward: "25% de desconto na próxima refeição",
+      rewardValue: 25,
+      cost: 20,
       restaurantId: 1,
     },
   ]);
