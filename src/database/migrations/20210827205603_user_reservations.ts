@@ -1,7 +1,7 @@
 import { Knex } from "knex";
 import onUpdateTrigger from "../../helpers/onUpdateTrigger";
 
-const tableName = "reservations";
+const tableName = "userReservations";
 export async function up(knex: Knex): Promise<void> {
   return knex.schema
     .createTable(tableName, (t) => {

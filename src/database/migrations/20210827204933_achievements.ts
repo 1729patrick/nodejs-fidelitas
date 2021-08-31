@@ -11,6 +11,7 @@ export async function up(knex: Knex): Promise<void> {
       t.enum("type", ["cash", "product", "discount"]).notNullable();
       t.string("reward").notNullable();
       t.integer("rewardValue").notNullable();
+      t.integer("productId");
       t.integer("cost").notNullable();
       t.integer("restaurantId").notNullable().index();
       t.timestamp("createdAt").defaultTo(knex.fn.now());

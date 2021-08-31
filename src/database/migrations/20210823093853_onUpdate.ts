@@ -4,7 +4,7 @@ const ON_UPDATE_TIMESTAMP_FUNCTION = `
   CREATE OR REPLACE FUNCTION onUpdateTimestamp()
   RETURNS trigger AS $$
   BEGIN
-    NEW.updatedAt = now();
+    NEW."updatedAt" = now();
     RETURN NEW;
   END;
 $$ language 'plpgsql';

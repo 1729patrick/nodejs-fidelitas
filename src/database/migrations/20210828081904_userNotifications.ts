@@ -6,11 +6,13 @@ export async function up(knex: Knex): Promise<void> {
   return knex.schema
     .createTable(tableName, (t) => {
       t.increments("id").primary().unsigned();
-      t.integer("userId").references("users.id").notNullable().index();
-      t.integer("restaurantId")
-        .references("restaurants.id")
+      t.boolean("read").defaultTo(false),
+        t.integer("userId").references("users.id").notNullable().index();
+      t.integer("notificationId")
+        .references("notifications.id")
         .notNullable()
         .index();
+      t.integer("deviceId").references("devices.id");
       t.timestamp("createdAt").defaultTo(knex.fn.now());
       t.timestamp("updatedAt").defaultTo(knex.fn.now());
     })
