@@ -7,6 +7,8 @@ import { Address } from "../../types/models/address";
 import { File } from "../../types/models/file";
 import { Notification } from "../../types/models/notification";
 import { Product } from "../../types/models/product";
+import { Purchase } from "../../types/models/purchase";
+import { PurchaseProduct } from "../../types/models/purchaseProduct";
 import { Restaurant } from "../../types/models/restaurant";
 import { User } from "../../types/models/user";
 import { UserNotification } from "../../types/models/userNotification";
@@ -29,5 +31,8 @@ export const UserNotifications = () =>
 export const Notifications = () => database<Notification>("notifications");
 export const UserReservations = () =>
   database<UserReservation>("userReservations");
+export const Purchases = () => database<Purchase>("purchases");
+export const PurchaseProducts = () =>
+  database<PurchaseProduct>("purchaseProducts");
 
 export default database;

@@ -1,3 +1,5 @@
+import { File } from "./file";
+
 type ProductType =
   | "starter"
   | "side"
@@ -18,4 +20,5 @@ export type Product = {
   restaurantId: number;
   createdAt: string;
   updatedAt: string;
+  image?: File;
 };

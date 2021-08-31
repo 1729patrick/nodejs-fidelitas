@@ -6,8 +6,8 @@ export async function up(knex: Knex): Promise<void> {
   return knex.schema
     .createTable(tableName, (t) => {
       t.increments("id").primary().unsigned();
-      t.boolean("read").defaultTo(false),
-        t.integer("userId").references("users.id").notNullable().index();
+      t.boolean("read").defaultTo(false);
+      t.integer("userId").references("users.id").notNullable().index();
       t.integer("notificationId")
         .references("notifications.id")
         .notNullable()

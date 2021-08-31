@@ -10,11 +10,13 @@ export default async (restaurantId: number): Promise<Product[]> => {
 
   return products.map((product) => {
     if (product.image) {
+      const { image } = product;
+
       return {
         ...product,
         image: {
-          id: product.image.id,
-          url: localFile(product.image.bucketName, product.image.fileName),
+          id: image.id,
+          url: localFile(image.bucketName, image.fileName),
         },
       };
     }

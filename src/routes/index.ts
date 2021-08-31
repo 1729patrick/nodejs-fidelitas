@@ -11,6 +11,7 @@ import files from "./files";
 import achievements from "./achievements";
 import addresses from "./addresses";
 import user from "./user";
+import purchases from "./purchases";
 
 export default (app: Express) => {
   winston.log("info", "--> Initialisations des routes");
@@ -30,6 +31,7 @@ export default (app: Express) => {
   app.use("/achievements", [achievements]);
   app.use("/addresses", [addresses]);
   app.use("/user", [user]);
+  app.use("/purchases", [purchases]);
 
   app.use(errors());
   app.all("*", (_: Request, res: Response) => res.boom.notFound());

@@ -346,4 +346,136 @@ export async function seed(knex: Knex): Promise<void> {
       restaurantId: 1,
     },
   ]);
+
+  await knex("payments").del();
+
+  await knex("payments").insert([
+    {
+      card: "9374",
+      userId: 1,
+    },
+    {
+      card: "2463",
+      userId: 1,
+    },
+    {
+      card: "3576",
+      userId: 2,
+    },
+    {
+      card: "3673",
+      userId: 2,
+    },
+  ]);
+
+  await knex("purchases").del();
+
+  await knex("purchases").insert([
+    {
+      deliveryType: "delivery",
+      promotionCode: "MAIS15",
+      subTotal: 20,
+      discount: 1.5,
+      total: 18.5,
+      paymentId: 1,
+      addressId: 1,
+      userId: 1,
+      restaurantId: 1,
+    },
+    {
+      deliveryType: "local",
+      promotionCode: "MAIS17",
+      subTotal: 87,
+      discount: 17,
+      total: 60,
+      paymentId: 2,
+      addressId: 2,
+      userId: 1,
+      restaurantId: 1,
+    },
+    {
+      deliveryType: "takeAway",
+      promotionCode: "MAIS15",
+      subTotal: 140,
+      discount: 15,
+      total: 125,
+      paymentId: 2,
+      addressId: 2,
+      userId: 1,
+      restaurantId: 1,
+    },
+    {
+      deliveryType: "delivery",
+      promotionCode: "MAIS15",
+      subTotal: 20,
+      discount: 1.5,
+      total: 18.5,
+      paymentId: 3,
+      addressId: 3,
+      userId: 2,
+      restaurantId: 1,
+    },
+    {
+      deliveryType: "local",
+      promotionCode: "MAIS17",
+      subTotal: 87,
+      discount: 17,
+      total: 60,
+      paymentId: 4,
+      addressId: 3,
+      userId: 2,
+      restaurantId: 1,
+    },
+    {
+      deliveryType: "takeAway",
+      promotionCode: "MAIS15",
+      subTotal: 140,
+      discount: 15,
+      total: 125,
+      paymentId: 3,
+      addressId: 4,
+      userId: 2,
+      restaurantId: 1,
+    },
+  ]);
+
+  await knex("purchaseProducts").del();
+
+  await knex("purchaseProducts").insert([
+    {
+      purchaseId: 1,
+      productId: 1,
+    },
+    {
+      purchaseId: 1,
+      productId: 2,
+    },
+    {
+      purchaseId: 1,
+      productId: 3,
+    },
+
+    {
+      purchaseId: 2,
+      productId: 1,
+    },
+    {
+      purchaseId: 2,
+      productId: 2,
+    },
+
+    {
+      purchaseId: 3,
+      productId: 1,
+    },
+
+    {
+      purchaseId: 4,
+      productId: 2,
+    },
+    {
+      purchaseId: 4,
+      productId: 3,
+    },
+  ]);
 }
