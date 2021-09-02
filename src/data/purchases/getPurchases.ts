@@ -7,6 +7,8 @@ export default async (userId: number): Promise<Purchase[]> => {
   const purchases = await Purchases()
     .select(
       "purchases.*",
+      database.raw(`ROW_TO_JSON(addresses) AS address`),
+      database.raw(`ROW_TO_JSON(payments) AS payment`),
       database.raw(
         `JSON_AGG(
           DISTINCT JSONB_BUILD_OBJECT(
@@ -22,11 +24,13 @@ export default async (userId: number): Promise<Purchase[]> => {
         ) as products`
       )
     )
-    .where("userId", userId)
+    .where("purchases.userId", userId)
     .leftJoin("purchaseProducts", "purchaseProducts.purchaseId", "purchases.id")
     .leftJoin("products", "purchaseProducts.productId", "products.id")
     .leftJoin("files", "files.id", "products.imageId")
-    .groupBy("purchases.id");
+    .leftJoin("addresses", "addresses.id", "purchases.addressId")
+    .leftJoin("payments", "payments.id", "purchases.paymentId")
+    .groupBy("purchases.id", "addresses.id", "payments.id");
 
   return purchases.map((purchase) => {
     return {
