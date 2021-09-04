@@ -21,7 +21,7 @@ export default async (
       });
 
     return res.redirect(url);
-  } catch (err) {
+  } catch (err: any) {
     return res.boom.badRequest(err.message);
   }
 };

@@ -8,7 +8,7 @@ export default async (req: Request, res: Response) => {
     const addresses = await getAddresses(userId);
 
     return res.json(addresses);
-  } catch (err) {
+  } catch (err: any) {
     return res.boom.badRequest(err.message);
   }
 };

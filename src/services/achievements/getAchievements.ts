@@ -8,7 +8,7 @@ export default async (req: Request, res: Response) => {
     const achievements = await getAchievements(restaurantId);
 
     return res.json(achievements);
-  } catch (err) {
+  } catch (err: any) {
     return res.boom.badRequest(err.message);
   }
 };

@@ -8,7 +8,7 @@ export default async (req: Request, res: Response) => {
     const reservations = await getReservations(userId);
 
     return res.json(reservations);
-  } catch (err) {
+  } catch (err: any) {
     return res.boom.badRequest(err.message);
   }
 };

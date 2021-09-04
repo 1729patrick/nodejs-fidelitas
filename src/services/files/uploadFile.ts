@@ -39,7 +39,7 @@ export default async (
       bucketName,
       url: localFile(bucketName, fileName),
     });
-  } catch (err) {
+  } catch (err: any) {
     return res.boom.badRequest(err.message);
   }
 };

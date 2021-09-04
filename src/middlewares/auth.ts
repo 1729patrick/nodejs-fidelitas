@@ -24,7 +24,7 @@ export default async (req: Request, res: Response, next: NextFunction) => {
     req.userType = decoded.userType;
 
     return next();
-  } catch (err) {
+  } catch (err: any) {
     return res.status(401).json({ error: ErrorType.InvalidToken });
   }
 };

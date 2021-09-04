@@ -8,7 +8,7 @@ export default async (req: Request, res: Response) => {
     const purchases = await getPurchases(userId);
 
     return res.json(purchases);
-  } catch (err) {
+  } catch (err: any) {
     return res.boom.badRequest(err.message);
   }
 };

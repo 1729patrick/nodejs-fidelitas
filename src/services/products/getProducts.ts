@@ -8,7 +8,7 @@ export default async (req: Request, res: Response) => {
     const products = await getProducts(restaurantId);
 
     return res.json(products);
-  } catch (err) {
+  } catch (err: any) {
     return res.boom.badRequest(err.message);
   }
 };

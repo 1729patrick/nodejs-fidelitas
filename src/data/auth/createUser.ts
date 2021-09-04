@@ -3,7 +3,7 @@ import bcrypt from "bcryptjs";
 import { User } from "../../../types/models/user";
 import { ErrorType } from "../../../types/error";
 
-export default async (user: User): Promise<number> => {
+export default async (user: User): Promise<User> => {
   const checkEmail = await Users().where({ email: user.email }).first();
   if (checkEmail) {
     throw Error(ErrorType.EmailAlreadyExists);
@@ -18,5 +18,11 @@ export default async (user: User): Promise<number> => {
 
   const [createdUserId] = (await Users().insert(user).returning("id")) || [];
 
-  return createdUserId;
+  if (!createdUserId) {
+    throw new Error(ErrorType.UnhandledError);
+  }
+
+  const createdUser = await Users().where({ id: createdUserId }).first();
+
+  return createdUser as User;
 };
