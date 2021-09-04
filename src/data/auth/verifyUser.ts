@@ -7,13 +7,16 @@ export default async (
   email: string,
   type: UserType,
   password: string,
-  restaurantId: number
+  restaurantId?: number
 ): Promise<User> => {
-  const user = await Users()
-    .where({ email, type, restaurantId })
-    .select("users.*")
-    .innerJoin("restaurants", "restaurants.id", "=", "users.restaurantId")
-    .first();
+
+
+    const user = await Users()
+      .where(type !== 'admin' ? {email, type, restaurantId} : {email, type})
+      .select("users.*")
+      .innerJoin("restaurants", "restaurants.id", "=", "users.restaurantId")
+      .first();
+
 
   if (!user) {
     throw new Error(ErrorType.InvalidEmail);

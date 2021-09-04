@@ -10,7 +10,7 @@ router.route("/login").post(
       email: Joi.string().required(),
       type: Joi.string().valid("admin", "client").default("client"),
       password: Joi.string().required(),
-      restaurantId: Joi.number().required(),
+      restaurantId: Joi.number(),
     }),
   }),
   login
