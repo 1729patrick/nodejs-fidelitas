@@ -12,6 +12,7 @@ export async function up(knex: Knex): Promise<void> {
       t.string("line2");
       t.string("postalCode").notNullable();
       t.string("city").notNullable();
+      t.string("country");
       t.string("responsible").notNullable();
       t.string("phone").notNullable();
       t.string("notes");

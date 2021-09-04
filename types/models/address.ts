@@ -6,6 +6,7 @@ export type Address = {
   line2?: string;
   postalCode: string;
   city: string;
+  country?: string;
   responsible: string;
   phone: string;
   notes?: string;
