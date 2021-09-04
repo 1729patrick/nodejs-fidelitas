@@ -24,9 +24,9 @@ export default (app: Express) => {
 
   app.use("/auth", [auth]);
   app.use("/files", [files]);
+  app.use("/restaurants", [restaurants]);
 
   app.use(authMiddleware);
-  app.use("/restaurants", [restaurants]);
   app.use("/products", [products]);
   app.use("/achievements", [achievements]);
   app.use("/addresses", [addresses]);
