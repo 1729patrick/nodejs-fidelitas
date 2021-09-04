@@ -8,7 +8,7 @@ export default async (id: number): Promise<Restaurant> => {
     .select(
       "restaurants.*",
       database.raw(`ROW_TO_JSON(addresses) AS address`),
-      database.raw(`ROW_TO_JSON("workHours") AS workHour`),
+      database.raw(`ROW_TO_JSON("workHours") AS "workHours"`),
       database.raw(
         `JSON_AGG(
           DISTINCT JSONB_BUILD_OBJECT(

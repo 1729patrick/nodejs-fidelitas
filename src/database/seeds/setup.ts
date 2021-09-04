@@ -8,40 +8,39 @@ export async function seed(knex: Knex): Promise<void> {
   await knex("workHours").insert([
     {
       sunday: {
-        breakfast: "06:30 às 09:30",
-        lunch: "11:20 às 13:50",
-        dinner: "18:30 às 22:00",
+        breakfast: ["06:30", "09:30"],
+        lunch: ["11:20", "13:50"],
+        dinner: ["18:30", "22:00"],
       },
-
       monday: {
-        breakfast: "06:30 às 09:30",
-        lunch: "11:20 às 13:50",
-        dinner: "18:30 às 22:00",
+        breakfast: ["06:30", "09:30"],
+        lunch: ["11:20", "13:50"],
+        dinner: ["18:30", "22:00"],
       },
       tuesday: {
-        breakfast: "06:30 às 09:30",
-        lunch: "11:20 às 13:50",
-        dinner: "18:30 às 22:00",
+        breakfast: ["06:30", "09:30"],
+        lunch: ["11:20", "13:50"],
+        dinner: ["18:30", "22:00"],
       },
       wednesday: {
-        breakfast: "06:30 às 09:30",
-        lunch: "11:20 às 13:50",
-        dinner: "18:30 às 22:00",
+        breakfast: ["06:30", "09:30"],
+        lunch: ["11:20", "13:50"],
+        dinner: ["18:30", "22:00"],
       },
       thursday: {
-        breakfast: "06:30 às 09:30",
-        lunch: "11:20 às 13:50",
-        dinner: "18:30 às 22:00",
+        breakfast: ["06:30", "09:30"],
+        lunch: ["11:20", "13:50"],
+        dinner: ["18:30", "22:00"],
       },
       friday: {
-        breakfast: "06:30 às 09:30",
-        lunch: "11:20 às 13:50",
-        dinner: "18:30 às 22:00",
+        breakfast: ["06:30", "09:30"],
+        lunch: ["11:20", "13:50"],
+        dinner: ["18:30", "22:00"],
       },
       saturday: {
-        breakfast: "06:30 às 09:30",
-        lunch: "11:20 às 13:50",
-        dinner: "18:30 às 22:00",
+        breakfast: ["06:30", "09:30"],
+        lunch: ["11:20", "13:50"],
+        dinner: ["18:30", "22:00"],
       },
     },
   ]);
@@ -56,8 +55,11 @@ export async function seed(knex: Knex): Promise<void> {
       city: "Lisboa",
       responsible: "Cristiano Rolando",
       phone: "9212384132",
+      country: "Portugal",
       primary: true,
       notes: "",
+      lat: 38.6898261,
+      long: -9.1733457,
     },
   ]);
 
@@ -67,7 +69,7 @@ export async function seed(knex: Knex): Promise<void> {
   await knex("restaurants").insert([
     {
       name: "Restaurante do pastel de bacalhau",
-      description: "O Melhor pastel de bacalhau de Lisboa",
+      description: "Portuguesa • Tradicional • Marinha",
       addressId: 1,
       workHoursId: 1,
     },
