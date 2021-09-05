@@ -2,12 +2,12 @@ import { File } from "./file";
 
 type ProductType =
   | "starter"
-  | "side"
   | "main"
   | "dessert"
+  | "salad"
+  | "side"
   | "drink"
-  | "special"
-  | "salad";
+  | "special";
 
 export type Product = {
   id: number;
