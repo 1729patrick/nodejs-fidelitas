@@ -1,75 +1,75 @@
-import { Knex } from "knex";
-import bcrypt from "bcryptjs";
+import { Knex } from 'knex';
+import bcrypt from 'bcryptjs';
 
 export async function seed(knex: Knex): Promise<void> {
   // Deletes ALL existing entries
-  await knex("workHours").del();
+  await knex('workHours').del();
 
-  await knex("workHours").insert([
+  await knex('workHours').insert([
     {
       sunday: {
-        breakfast: ["06:30", "09:30"],
-        lunch: ["11:20", "13:50"],
-        dinner: ["18:30", "22:00"],
+        breakfast: ['06:30', '09:30'],
+        lunch: ['11:20', '13:50'],
+        dinner: ['18:30', '22:00'],
       },
       monday: {
-        breakfast: ["06:30", "09:30"],
-        lunch: ["11:20", "13:50"],
-        dinner: ["18:30", "22:00"],
+        breakfast: ['06:30', '09:30'],
+        lunch: ['11:20', '13:50'],
+        dinner: ['18:30', '22:00'],
       },
       tuesday: {
-        breakfast: ["06:30", "09:30"],
-        lunch: ["11:20", "13:50"],
-        dinner: ["18:30", "22:00"],
+        breakfast: ['06:30', '09:30'],
+        lunch: ['11:20', '13:50'],
+        dinner: ['18:30', '22:00'],
       },
       wednesday: {
-        breakfast: ["06:30", "09:30"],
-        lunch: ["11:20", "13:50"],
-        dinner: ["18:30", "22:00"],
+        breakfast: ['06:30', '09:30'],
+        lunch: ['11:20', '13:50'],
+        dinner: ['18:30', '22:00'],
       },
       thursday: {
-        breakfast: ["06:30", "09:30"],
-        lunch: ["11:20", "13:50"],
-        dinner: ["18:30", "22:00"],
+        breakfast: ['06:30', '09:30'],
+        lunch: ['11:20', '13:50'],
+        dinner: ['18:30', '22:00'],
       },
       friday: {
-        breakfast: ["06:30", "09:30"],
-        lunch: ["11:20", "13:50"],
-        dinner: ["18:30", "22:00"],
+        breakfast: ['06:30', '09:30'],
+        lunch: ['11:20', '13:50'],
+        dinner: ['18:30', '22:00'],
       },
       saturday: {
-        breakfast: ["06:30", "09:30"],
-        lunch: ["11:20", "13:50"],
-        dinner: ["18:30", "22:00"],
+        breakfast: ['06:30', '09:30'],
+        lunch: ['11:20', '13:50'],
+        dinner: ['18:30', '22:00'],
       },
     },
   ]);
 
-  await knex("addresses").del();
+  await knex('addresses').del();
 
-  await knex("addresses").insert([
+  await knex('addresses').insert([
     {
-      line1: "Avenida Orlando Pacheco",
-      line2: "Torre 2, 09º Andar",
-      postalCode: "1070-101",
-      city: "Lisboa",
-      responsible: "Cristiano Rolando",
-      phone: "9212384132",
-      country: "Portugal",
+      line1: 'Avenida Orlando Pacheco',
+      line2: 'Torre 2, 09º Andar',
+      postalCode: '1070-101',
+      city: 'Lisboa',
+      responsible: 'Cristiano Rolando',
+      phone: '9212384132',
+      country: 'Portugal',
       primary: true,
-      notes: "",
+      notes: '',
       lat: 38.6898261,
       long: -9.1733457,
     },
   ]);
 
   // Deletes ALL existing entries
-  await knex("restaurants").del();
+  await knex('restaurants').del();
 
-  await knex("restaurants").insert([
+  await knex('restaurants').insert([
     {
-      name: "Restaurante do pastel de bacalhau",
-      description: "Portuguesa • Tradicional • Marinha",
+      name: 'Restaurante do pastel de bacalhau',
+      description: 'Portuguesa • Tradicional • Marinha',
       addressId: 1,
       workHoursId: 1,
     },
@@ -78,110 +78,110 @@ export async function seed(knex: Knex): Promise<void> {
   // Deletes ALL existing entries
 
   // Deletes ALL existing entries
-  await knex("users").del();
+  await knex('users').del();
 
-  await knex("users").insert([
+  await knex('users').insert([
     {
-      firstName: "Patrick",
-      lastName: "Battisti Forsthofer",
-      password: bcrypt.hashSync("pbf", 10),
-      type: "admin",
-      phone: "921238413",
-      email: "pbf",
+      firstName: 'Patrick',
+      lastName: 'Battisti Forsthofer',
+      password: bcrypt.hashSync('pbf', 10),
+      type: 'admin',
+      phone: '921238413',
+      email: 'pbf',
       restaurantId: 1,
     },
     {
-      firstName: "Tomás",
-      lastName: "Santos",
-      password: bcrypt.hashSync("ts", 10),
-      type: "admin",
-      phone: "9212384123",
-      email: "ts",
+      firstName: 'Tomás',
+      lastName: 'Santos',
+      password: bcrypt.hashSync('ts', 10),
+      type: 'admin',
+      phone: '9212384123',
+      email: 'ts',
       restaurantId: 1,
     },
   ]);
 
-  await knex("addresses").insert([
+  await knex('addresses').insert([
     {
-      line1: "Avenida Orlando Pacheco",
-      line2: "Torre 2, 2º Andar",
-      postalCode: "1234-421",
-      city: "Lisboa",
-      responsible: "Cristiano Rolando",
-      phone: "921238413",
+      line1: 'Avenida Orlando Pacheco',
+      line2: 'Torre 2, 2º Andar',
+      postalCode: '1234-421',
+      city: 'Lisboa',
+      responsible: 'Cristiano Rolando',
+      phone: '921238413',
       primary: true,
-      notes: "",
+      notes: '',
       userId: 1,
     },
     {
-      line1: "Avenida Pacheco Orlando",
-      line2: "Torre 2, 10º Andar",
-      postalCode: "2151-456",
-      city: "Lisboa",
-      responsible: "Cristiano Rolando",
-      phone: "921238413",
+      line1: 'Avenida Pacheco Orlando',
+      line2: 'Torre 2, 10º Andar',
+      postalCode: '2151-456',
+      city: 'Lisboa',
+      responsible: 'Cristiano Rolando',
+      phone: '921238413',
       primary: false,
-      notes: "",
+      notes: '',
       userId: 1,
     },
     {
-      line1: "Avenida Orlando Pacheco",
-      line2: "Torre 2, 03º Andar",
-      postalCode: "1256-362",
-      city: "Lisboa",
-      responsible: "Cristiano Rolando",
-      phone: "921238413",
+      line1: 'Avenida Orlando Pacheco',
+      line2: 'Torre 2, 03º Andar',
+      postalCode: '1256-362',
+      city: 'Lisboa',
+      responsible: 'Cristiano Rolando',
+      phone: '921238413',
       primary: true,
-      notes: "",
+      notes: '',
       userId: 2,
     },
     {
-      line1: "Avenida Pacheco Orlando",
-      line2: "Torre 2, 19º Andar",
-      postalCode: "2762-347",
-      city: "Lisboa",
-      responsible: "Cristiano Rolando",
-      phone: "921238413",
+      line1: 'Avenida Pacheco Orlando',
+      line2: 'Torre 2, 19º Andar',
+      postalCode: '2762-347',
+      city: 'Lisboa',
+      responsible: 'Cristiano Rolando',
+      phone: '921238413',
       primary: false,
-      notes: "",
+      notes: '',
       userId: 2,
     },
   ]);
 
-  await knex("contacts").del();
+  await knex('contacts').del();
 
-  await knex("contacts").insert([
-    { contact: "912123821", type: "phone", restaurantId: 1 },
-    { contact: "9128372132", type: "phone", restaurantId: 1 },
-    { contact: "pasteu@bacalhau.com", type: "email", restaurantId: 1 },
+  await knex('contacts').insert([
+    { contact: '912123821', type: 'phone', restaurantId: 1 },
+    { contact: '9128372132', type: 'phone', restaurantId: 1 },
+    { contact: 'pasteu@bacalhau.com', type: 'email', restaurantId: 1 },
   ]);
 
-  await knex("notifications").del();
+  await knex('notifications').del();
 
-  await knex("notifications").insert([
+  await knex('notifications').insert([
     {
-      type: "email",
-      title: "Bem vindo",
-      description: "Avenida Pacheco Orlando e Cristiano Rolando",
+      type: 'email',
+      title: 'Bem vindo',
+      description: 'Avenida Pacheco Orlando e Cristiano Rolando',
       restaurantId: 1,
     },
     {
-      type: "pushNotification",
-      title: "Bem vindo",
-      description: "Avenida Pacheco Orlando e Cristiano Rolando",
+      type: 'pushNotification',
+      title: 'Bem vindo',
+      description: 'Avenida Pacheco Orlando e Cristiano Rolando',
       restaurantId: 1,
     },
     {
-      type: "sms",
-      title: "Bem vindo",
-      description: "Avenida Pacheco Orlando e Cristiano Rolando",
+      type: 'sms',
+      title: 'Bem vindo',
+      description: 'Avenida Pacheco Orlando e Cristiano Rolando',
       restaurantId: 1,
     },
   ]);
 
-  await knex("userNotifications").del();
+  await knex('userNotifications').del();
 
-  await knex("userNotifications").insert([
+  await knex('userNotifications').insert([
     {
       userId: 1,
       notificationId: 1,
@@ -210,22 +210,22 @@ export async function seed(knex: Knex): Promise<void> {
     },
   ]);
 
-  await knex("facilities").del();
+  await knex('facilities').del();
 
-  await knex("facilities").insert([
-    { title: "Wi-fi" },
-    { title: "Permitido Fumar" },
-    { title: "Bebida alcoólica" },
-    { title: "Bom para jantar" },
-    { title: "Bom para almoças" },
+  await knex('facilities').insert([
+    { title: 'Wi-fi' },
+    { title: 'Permitido Fumar' },
+    { title: 'Bebida alcoólica' },
+    { title: 'Bom para jantar' },
+    { title: 'Bom para almoças' },
   ]);
 
-  await knex("userReservations").del();
+  await knex('userReservations').del();
 
-  await knex("userReservations").insert([
+  await knex('userReservations').insert([
     {
-      date: "2021-09-01",
-      time: "24:00",
+      date: '2021-09-01',
+      time: '24:00',
       adults: 3,
       kids: 2,
       babies: 0,
@@ -233,8 +233,8 @@ export async function seed(knex: Knex): Promise<void> {
       restaurantId: 1,
     },
     {
-      date: "2021-09-01",
-      time: "12:00",
+      date: '2021-09-01',
+      time: '12:00',
       adults: 3,
       kids: 0,
       babies: 0,
@@ -242,8 +242,8 @@ export async function seed(knex: Knex): Promise<void> {
       restaurantId: 1,
     },
     {
-      date: "2021-09-01",
-      time: "08:00",
+      date: '2021-09-01',
+      time: '08:00',
       adults: 3,
       kids: 2,
       babies: 0,
@@ -251,8 +251,8 @@ export async function seed(knex: Knex): Promise<void> {
       restaurantId: 1,
     },
     {
-      date: "2021-09-01",
-      time: "12:00",
+      date: '2021-09-01',
+      time: '12:00',
       adults: 3,
       kids: 0,
       babies: 0,
@@ -261,9 +261,9 @@ export async function seed(knex: Knex): Promise<void> {
     },
   ]);
 
-  await knex("restaurantFacilities").del();
+  await knex('restaurantFacilities').del();
 
-  await knex("restaurantFacilities").insert([
+  await knex('restaurantFacilities').insert([
     { restaurantId: 1, facilityId: 1 },
     { restaurantId: 1, facilityId: 2 },
     { restaurantId: 1, facilityId: 3 },
@@ -271,142 +271,142 @@ export async function seed(knex: Knex): Promise<void> {
     { restaurantId: 1, facilityId: 5 },
   ]);
 
-  await knex("products").del();
+  await knex('products').del();
 
-  await knex("files").del();
+  await knex('files').del();
 
-  await knex("files").insert([
+  await knex('files').insert([
     {
-      originalName: "background_home.jpg",
-      bucketName: "fidelitas-general",
-      fileName: "8d1b5d1262bec8042b17d4d2e14cdcbd.jpg",
+      originalName: 'background_home.jpg',
+      bucketName: 'fidelitas-general',
+      fileName: '8d1b5d1262bec8042b17d4d2e14cdcbd.jpg',
     },
   ]);
 
-  await knex("products").insert([
+  await knex('products').insert([
     {
-      title: "Pastel de bacalhau",
-      description: "O melhor pastel de bacalhau",
-      ingredients: "Farinha de trigo, aminoácidos, conservantes vegetais",
-      allergens: "Gluten",
+      title: 'Pastel de bacalhau',
+      description: 'O melhor pastel de bacalhau',
+      ingredients: 'Farrinha de trigo, aminoácidos, conservantes vegetais',
+      allergens: 'Gluten',
       price: 1049,
-      type: "side",
+      type: 'side',
       restaurantId: 1,
       imageId: 1,
     },
     {
-      title: "Pastel de carne",
-      description: "O melhor pastel de carne",
-      ingredients: "Farinha de trigo, aminoácidos, conservantes vegetais",
-      allergens: "Gluten",
+      title: 'Pastel de carne',
+      description: 'O melhor pastel de carne',
+      ingredients: 'Farrinha de trigo, aminoácidos, conservantes vegetais',
+      allergens: 'Gluten',
       price: 1412,
-      type: "side",
+      type: 'side',
       restaurantId: 1,
       imageId: 1,
     },
     {
-      title: "Pastel de frango",
-      description: "O melhor pastel de frango",
-      ingredients: "Farinha de trigo, aminoácidos, conservantes vegetais",
-      allergens: "Gluten",
+      title: 'Pastel de frango',
+      description: 'O melhor pastel de frango',
+      ingredients: 'Farrinha de trigo, aminoácidos, conservantes vegetais',
+      allergens: 'Gluten',
       price: 6823,
-      type: "side",
+      type: 'side',
       restaurantId: 1,
       imageId: 1,
     },
 
     {
-      title: "Pastel de bacalhau",
-      description: "O melhor pastel de bacalhau",
-      ingredients: "Farinha de trigo, aminoácidos, conservantes vegetais",
-      allergens: "Gluten",
+      title: 'Pastel de bacalhau',
+      description: 'O melhor pastel de bacalhau',
+      ingredients: 'Farrinha de trigo, aminoácidos, conservantes vegetais',
+      allergens: 'Gluten',
       price: 5728,
-      type: "starter",
+      type: 'starter',
       restaurantId: 1,
       imageId: 1,
     },
     {
-      title: "Pastel de carne",
-      description: "O melhor pastel de carne",
-      ingredients: "Farinha de trigo, aminoácidos, conservantes vegetais",
-      allergens: "Gluten",
+      title: 'Pastel de carne',
+      description: 'O melhor pastel de carne',
+      ingredients: 'Farrinha de trigo, aminoácidos, conservantes vegetais',
+      allergens: 'Gluten',
       price: 4215,
-      type: "drink",
+      type: 'drink',
       restaurantId: 1,
       imageId: 1,
     },
     {
-      title: "Pastel de frango",
-      description: "O melhor pastel de frango",
-      ingredients: "Farinha de trigo, aminoácidos, conservantes vegetais",
-      allergens: "Gluten",
+      title: 'Pastel de frango',
+      description: 'O melhor pastel de frango',
+      ingredients: 'Farrinha de trigo, aminoácidos, conservantes vegetais',
+      allergens: 'Gluten',
       price: 3924,
-      type: "drink",
+      type: 'drink',
       restaurantId: 1,
       imageId: 1,
     },
   ]);
 
-  await knex("achievements").del();
+  await knex('achievements').del();
 
-  await knex("achievements").insert([
+  await knex('achievements').insert([
     {
-      title: "Critico do bacalhau",
-      description: "Nos conte o que achou sobre o pedido feito pela aplicação",
-      type: "product",
-      reward: "Pastel de Frango",
+      title: 'Critico do bacalhau',
+      description: 'Nos conte o que achou sobre o pedido feito pela aplicação',
+      type: 'product',
+      reward: 'Pastel de Frango',
       rewardValue: 1,
       cost: 10,
       restaurantId: 1,
       productId: 1,
     },
     {
-      title: "Critico do bacalhau",
-      description: "Nos conte o que achou sobre o pedido feito pela aplicação",
-      type: "cash",
-      reward: "10 €",
+      title: 'Critico do bacalhau',
+      description: 'Nos conte o que achou sobre o pedido feito pela aplicação',
+      type: 'cash',
+      reward: '10 €',
       rewardValue: 10,
       cost: 5,
       restaurantId: 1,
     },
     {
-      title: "Critico do bacalhau",
-      description: "Nos conte o que achou sobre o pedido feito pela aplicação",
-      type: "discount",
-      reward: "25% de desconto na próxima refeição",
+      title: 'Critico do bacalhau',
+      description: 'Nos conte o que achou sobre o pedido feito pela aplicação',
+      type: 'discount',
+      reward: '25% de desconto na próxima refeição',
       rewardValue: 25,
       cost: 20,
       restaurantId: 1,
     },
   ]);
 
-  await knex("payments").del();
+  await knex('payments').del();
 
-  await knex("payments").insert([
+  await knex('payments').insert([
     {
-      card: "9374",
+      card: '9374',
       userId: 1,
     },
     {
-      card: "2463",
+      card: '2463',
       userId: 1,
     },
     {
-      card: "3576",
+      card: '3576',
       userId: 2,
     },
     {
-      card: "3673",
+      card: '3673',
       userId: 2,
     },
   ]);
 
-  await knex("purchases").del();
+  await knex('purchases').del();
 
-  await knex("purchases").insert([
+  await knex('purchases').insert([
     {
-      deliveryType: "delivery",
-      promotionCode: "MAIS15",
+      deliveryType: 'delivery',
+      promotionCode: 'MAIS15',
       subTotal: 20,
       discount: 1.5,
       total: 18.5,
@@ -416,8 +416,8 @@ export async function seed(knex: Knex): Promise<void> {
       restaurantId: 1,
     },
     {
-      deliveryType: "local",
-      promotionCode: "MAIS17",
+      deliveryType: 'local',
+      promotionCode: 'MAIS17',
       subTotal: 87,
       discount: 17,
       total: 60,
@@ -427,8 +427,8 @@ export async function seed(knex: Knex): Promise<void> {
       restaurantId: 1,
     },
     {
-      deliveryType: "takeAway",
-      promotionCode: "MAIS15",
+      deliveryType: 'takeAway',
+      promotionCode: 'MAIS15',
       subTotal: 140,
       discount: 15,
       total: 125,
@@ -438,8 +438,8 @@ export async function seed(knex: Knex): Promise<void> {
       restaurantId: 1,
     },
     {
-      deliveryType: "delivery",
-      promotionCode: "MAIS15",
+      deliveryType: 'delivery',
+      promotionCode: 'MAIS15',
       subTotal: 20,
       discount: 1.5,
       total: 18.5,
@@ -449,8 +449,8 @@ export async function seed(knex: Knex): Promise<void> {
       restaurantId: 1,
     },
     {
-      deliveryType: "local",
-      promotionCode: "MAIS17",
+      deliveryType: 'local',
+      promotionCode: 'MAIS17',
       subTotal: 87,
       discount: 17,
       total: 60,
@@ -460,8 +460,8 @@ export async function seed(knex: Knex): Promise<void> {
       restaurantId: 1,
     },
     {
-      deliveryType: "takeAway",
-      promotionCode: "MAIS15",
+      deliveryType: 'takeAway',
+      promotionCode: 'MAIS15',
       subTotal: 140,
       discount: 15,
       total: 125,
@@ -472,9 +472,9 @@ export async function seed(knex: Knex): Promise<void> {
     },
   ]);
 
-  await knex("purchaseProducts").del();
+  await knex('purchaseProducts').del();
 
-  await knex("purchaseProducts").insert([
+  await knex('purchaseProducts').insert([
     {
       purchaseId: 1,
       productId: 1,
