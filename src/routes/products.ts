@@ -9,7 +9,7 @@ router.route('/').get(getProducts);
 router.route('/search').get(
   celebrate({
     [Segments.QUERY]: Joi.object().keys({
-      term: Joi.string().required(),
+      term: Joi.string().min(3).required(),
     }),
   }),
   searchProducts,
