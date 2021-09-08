@@ -13,10 +13,10 @@ router.route('/reservations').put(
   celebrate({
     [Segments.BODY]: Joi.object().keys({
       date: Joi.date().required(),
-      time: Joi.date().required(),
-      adults: Joi.number().required(),
+      time: Joi.string().regex(/^([0-9]{2})\:([0-9]{2})$/).required(),
+      adults: Joi.number(),
       kids: Joi.number(),
-      babies: Joi.number().required(),
+      babies: Joi.number(),
       userId: Joi.number().required(),
       restaurantId: Joi.number().required(),
     }),
