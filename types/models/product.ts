@@ -1,6 +1,6 @@
 import { File } from "./file";
 
-type ProductType =
+export type ProductType =
   | "starter"
   | "main"
   | "dessert"
