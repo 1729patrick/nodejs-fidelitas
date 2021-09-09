@@ -6,6 +6,5 @@ export default async (id: number): Promise<User[]> => {
   const users =  Users()
     .select('users.*')
     .where('restaurantId', '=', id)
-  console.log(users);
   return users;
 }

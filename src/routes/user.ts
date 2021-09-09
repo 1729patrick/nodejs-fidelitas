@@ -10,11 +10,7 @@ const router = Router();
 
 router.route("/notifications").get(getNotifications);
 router.route("/reservations").get(getReservations);
-router.route("/restaurantUsers").get(celebrate({
-  [Segments.QUERY]: Joi.object().keys({
-    restaurantId: Joi.string().required(),
-  }),
-}),getRestaurantUsers);
+router.route("/restaurantUsers").get(getRestaurantUsers);
 router.route('/reservations').put(
   celebrate({
     [Segments.BODY]: Joi.object().keys({

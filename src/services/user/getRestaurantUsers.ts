@@ -3,13 +3,12 @@ import getRestaurantUsers from "../../data/user/getRestaurantUsers";
 
 export default async (req: Request, res: Response) => {
   try {
-      const {restaurantId} = req.query;
+    const { restaurantId } = req;
 
-      if(typeof restaurantId === 'string') {
-        const userRestaurants = await getRestaurantUsers(parseInt(restaurantId));
+        const userRestaurants = await getRestaurantUsers(restaurantId);
 
         return res.json(userRestaurants);
-      }
+
   } catch (err: any) {
     return res.boom.badRequest(err.message);
   }
