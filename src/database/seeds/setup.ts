@@ -453,19 +453,19 @@ export async function seed(knex: Knex): Promise<void> {
 
   await knex('payments').insert([
     {
-      card: '9374',
+      number: '9374',
       userId: 1,
     },
     {
-      card: '2463',
+      number: '2463',
       userId: 1,
     },
     {
-      card: '3576',
+      number: '3576',
       userId: 2,
     },
     {
-      card: '3673',
+      number: '3673',
       userId: 2,
     },
   ]);

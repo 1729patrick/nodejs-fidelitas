@@ -1,5 +1,5 @@
-import { Request, Response } from "express";
-import getPurchases from "../../data/purchases/getPurchases";
+import { Request, Response } from 'express';
+import getPurchases from '../../data/user/getPurchases';
 
 export default async (req: Request, res: Response) => {
   try {
