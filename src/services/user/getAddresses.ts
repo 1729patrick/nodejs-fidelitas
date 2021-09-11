@@ -1,5 +1,5 @@
-import { Request, Response } from "express";
-import getAddresses from "../../data/addresses/getAddresses";
+import { Request, Response } from 'express';
+import getAddresses from '../../data/user/getAddresses';
 
 export default async (req: Request, res: Response) => {
   try {

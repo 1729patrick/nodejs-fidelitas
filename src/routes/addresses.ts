@@ -1,8 +1,7 @@
-import { Router } from "express";
-import getAddresses from "../services/addresses/getAddresses";
+import { Router } from 'express';
 
 const router = Router();
 
-router.route("/").get(getAddresses);
+// router.route("/").get();
 
 export default router;
