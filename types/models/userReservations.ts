@@ -9,6 +9,8 @@ export type UserReservation = {
   adminNotes?: string;
   userId: number;
   restaurantId: number;
+  type: 'breakfast' | 'lunch' | 'dinner';
+  status: 'canceled' | 'inReview' | 'confirmed';
   createdAt: string;
   updatedAt: string;
 };
