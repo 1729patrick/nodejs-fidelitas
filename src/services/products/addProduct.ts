@@ -11,12 +11,11 @@ export default async (req: Request, res: Response) => {
       price,
       type,
       imageId,
-      restaurantId
        } = req.body;
-    const {} = req.params;
+    const {restaurantId} = req;
 
 
-    const product = await addProduct(title, description, ingredients, allergens, price, type, parseInt(imageId), parseInt(restaurantId));
+    const product = await addProduct(title, description, ingredients, allergens, price, type, parseInt(imageId), parseInt(String(restaurantId)));
 
 
 

@@ -1,7 +1,7 @@
 import { Notification } from "../../../types/models/notification";
 import { Notifications } from "../../database";
 
-export default async (restaurantId: string): Promise<Notification[]> => {
+export default async (restaurantId: number): Promise<Notification[]> => {
   const notifications = await Notifications()
     .select("notifications.*")
     .where("restaurantId", restaurantId)

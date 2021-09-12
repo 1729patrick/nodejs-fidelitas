@@ -28,16 +28,17 @@ export default async (
     const fileName = `${crypto.randomBytes(16).toString("hex")}.${ext}`;
     const bucketName = buckets[req.body.type] as string;
 
+
     await storage.bucket(bucketName).upload(path, {
       destination: fileName,
     });
 
-    await createFile(originalName, bucketName, fileName);
-
+    const file = await createFile(originalName, bucketName, fileName);
     return res.json({
       fileName,
       bucketName,
       url: localFile(bucketName, fileName),
+      id: file
     });
   } catch (err: any) {
     return res.boom.badRequest(err.message);
