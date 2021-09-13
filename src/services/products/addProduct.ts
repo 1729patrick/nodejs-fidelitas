@@ -14,10 +14,7 @@ export default async (req: Request, res: Response) => {
        } = req.body;
     const {restaurantId} = req;
 
-
     const product = await addProduct(title, description, ingredients, allergens, price, type, parseInt(imageId), parseInt(String(restaurantId)));
-
-
 
     return res.json(product);
   } catch (err: any) {

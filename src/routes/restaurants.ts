@@ -4,10 +4,11 @@ import getRestaurant from "../services/restaurants/getRestaurant";
 import getNotifications from "../services/restaurants/getNotifications";
 import addNotifications from "../services/restaurants/addNotifications";
 import authMiddleware from "../middlewares/auth";
+import getRestaurantUsers from "../services/restaurants/getRestaurantUsers";
 
 const router = Router();
 
-router.route("/:restaurantId").get(
+router.route("/:restaurantId/details").get(
   celebrate({
     [Segments.PARAMS]: Joi.object().keys({
       restaurantId: Joi.number().required(),
@@ -15,7 +16,9 @@ router.route("/:restaurantId").get(
   }),
   getRestaurant
 );
+
 router.use(authMiddleware);
+
 router.route("/notifications/:restaurantId").get(celebrate({
     [Segments.PARAMS]: Joi.object().keys({
       restaurantId: Joi.number().required(),
@@ -23,6 +26,8 @@ router.route("/notifications/:restaurantId").get(celebrate({
   }),
   getNotifications
 );
+
+router.route('/users').get(getRestaurantUsers);
 
 router.route("/notifications/add").put(celebrate({
     [Segments.BODY]: Joi.object().keys({

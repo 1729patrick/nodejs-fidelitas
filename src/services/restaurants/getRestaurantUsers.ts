@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import getRestaurantUsers from "../../data/user/getRestaurantUsers";
+import getRestaurantUsers from "../../data/restaurants/getRestaurantUsers";
 
 export default async (req: Request, res: Response) => {
   try {
