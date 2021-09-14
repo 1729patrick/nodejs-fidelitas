@@ -26,13 +26,6 @@ router.route("/notifications").get(
 
 router.route('/users').get(getRestaurantUsers);
 
-router.route('/users/:userId').delete(celebrate({
-  [Segments.PARAMS]: Joi.object().keys({
-    userId: Joi.number().required(),
-
-  }),
-}),deleteRestaurantUser);
-
 router.route("/notifications/add").put(celebrate({
     [Segments.BODY]: Joi.object().keys({
       title: Joi.string().required(),
@@ -42,6 +35,12 @@ router.route("/notifications/add").put(celebrate({
   }),
   addNotifications
 );
+router.route('/users/:userId').delete(celebrate({
+  [Segments.PARAMS]: Joi.object().keys({
+    userId: Joi.number().required(),
+
+  }),
+}),deleteRestaurantUser);
 
 
 

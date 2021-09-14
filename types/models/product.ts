@@ -9,6 +9,10 @@ export type ProductType =
   | "drink"
   | "special";
 
+export type ProductStatus =
+  | "ACTIVE"
+  | "DELETED";
+
 export type Product = {
   id: number;
   title: string;
@@ -17,6 +21,7 @@ export type Product = {
   allergens: string;
   price: number;
   type: ProductType;
+  status: ProductStatus;
   restaurantId: number;
   createdAt: string;
   updatedAt: string;

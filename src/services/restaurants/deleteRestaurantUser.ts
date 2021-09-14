@@ -9,8 +9,8 @@ export default async (
   try {
     const { userId } = req.params;
 
-    const notifications = await deleteRestaurantUser(parseInt(String(userId)));
-    return res.json(notifications);
+    const user = await deleteRestaurantUser(parseInt(String(userId)));
+    return res.json(user);
   } catch (err: any) {
     return res.boom.badRequest(err.message);
   }
