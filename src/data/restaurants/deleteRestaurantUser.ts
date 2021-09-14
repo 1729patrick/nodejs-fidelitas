@@ -7,7 +7,7 @@ export default async (id: number,
   const user = await Users()
     .select('users.*')
     .where('users.id', id)
-    .del()
+    .update({status: 'DELETED'})
     .returning('*')
 
   return user;
