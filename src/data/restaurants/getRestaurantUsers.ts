@@ -7,6 +7,7 @@ export default async (id: number): Promise<User[]> => {
     .select('users.*')
     .where('purchases.restaurantId', '=', id)
     .where('users.restaurantId', '=', id)
+    .where('users.status', '=', 'ACTIVE')
     .leftJoin('purchases', 'purchases.userId', 'users.id')
     .sum({totalPurchases: 'purchases.total'})
     .count({visits: 'purchases'})
