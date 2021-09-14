@@ -2,6 +2,7 @@ import { Router } from 'express';
 import getAchievements from '../services/achievements/getAchievements';
 import { celebrate, Joi, Segments } from 'celebrate';
 import addAchievements from '../services/achievements/addAchievements';
+import deleteRestaurantAchievement from "../services/achievements/deleteRestaurantAchievement";
 
 const router = Router();
 
@@ -19,5 +20,11 @@ router.route('/add').put(
   }),
   addAchievements,
 );
+router.route('/:achievementId').delete(celebrate({
+  [Segments.PARAMS]: Joi.object().keys({
+    achievementId: Joi.number().required(),
+
+  }),
+}),deleteRestaurantAchievement);
 
 export default router;
