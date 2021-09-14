@@ -7,7 +7,7 @@ export default async (
   res: Response
 ) => {
   try {
-    const { restaurantId } = req.params;
+    const { restaurantId } = req;
     const notifications = await getNotifications(parseInt(String(restaurantId)));
     return res.json(notifications);
   } catch (err: any) {

@@ -4,8 +4,8 @@ import addReserve from "../../data/user/addReserve";
 
 export default async (req: Request, res: Response) => {
   try {
-    const { userId } = req;
-    const  { restaurantId, date, time, adults, kids, babies} = req.body
+    const { restaurantId, userId } = req;
+    const  {  date, time, adults, kids, babies} = req.body
 
     const addresses = await addReserve(userId,restaurantId, date, time, adults, kids, babies);
 

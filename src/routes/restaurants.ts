@@ -19,11 +19,7 @@ router.route("/:restaurantId/details").get(
 
 router.use(authMiddleware);
 
-router.route("/notifications/:restaurantId").get(celebrate({
-    [Segments.PARAMS]: Joi.object().keys({
-      restaurantId: Joi.number().required(),
-    }),
-  }),
+router.route("/notifications").get(
   getNotifications
 );
 
