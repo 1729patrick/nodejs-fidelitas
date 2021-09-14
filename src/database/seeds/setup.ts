@@ -169,6 +169,7 @@ export async function seed(knex: Knex): Promise<void> {
       type: 'email',
       title: 'Férias entre 12 e 18 de agosto',
       description: 'Foco, força e férias!!',
+      status: 'ACTIVE',
       restaurantId: 1,
     },
     {
@@ -176,12 +177,14 @@ export async function seed(knex: Knex): Promise<void> {
       title: 'Compre um vinho e banhe um hambúrguer',
       description:
         'Promoção disponível para os clientes que comprem o vinho da casa.',
+      status: 'ACTIVE',
       restaurantId: 1,
     },
     {
       type: 'sms',
       title: 'Bem-vindo',
       description: 'Estamos te esperando.',
+      status: 'ACTIVE',
       restaurantId: 1,
     },
   ]);

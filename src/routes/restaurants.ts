@@ -6,6 +6,7 @@ import addNotifications from "../services/restaurants/addNotifications";
 import authMiddleware from "../middlewares/auth";
 import getRestaurantUsers from "../services/restaurants/getRestaurantUsers";
 import deleteRestaurantUser from "../services/restaurants/deleteRestaurantUser";
+import deleteNotifications from "../services/restaurants/deleteNotifications";
 
 const router = Router();
 
@@ -41,6 +42,13 @@ router.route('/users/:userId').delete(celebrate({
 
   }),
 }),deleteRestaurantUser);
+
+router.route('/notifications/:notificationId').delete(celebrate({
+  [Segments.PARAMS]: Joi.object().keys({
+    notificationId: Joi.number().required(),
+
+  }),
+}),deleteNotifications);
 
 
 
