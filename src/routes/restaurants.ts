@@ -7,6 +7,7 @@ import authMiddleware from "../middlewares/auth";
 import getRestaurantUsers from "../services/restaurants/getRestaurantUsers";
 import deleteRestaurantUser from "../services/restaurants/deleteRestaurantUser";
 import deleteNotifications from "../services/restaurants/deleteNotifications";
+import getRestaurantFacilities from "../services/restaurants/getRestaurantFacilities";
 
 const router = Router();
 
@@ -23,6 +24,10 @@ router.use(authMiddleware);
 
 router.route("/notifications").get(
   getNotifications
+);
+
+router.route("/facilities").get(
+  getRestaurantFacilities
 );
 
 router.route('/users').get(getRestaurantUsers);
