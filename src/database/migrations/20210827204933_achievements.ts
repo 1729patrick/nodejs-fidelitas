@@ -13,7 +13,7 @@ export async function up(knex: Knex): Promise<void> {
       t.integer("rewardValue").notNullable();
       t.integer("productId");
       t.integer("cost").notNullable();
-      t.enum("status", ["ACTIVE", "DELETED"]).notNullable();
+      t.enum("status", ["ACTIVE", "DELETED"]).defaultTo("ACTIVE").notNullable();
       t.integer("restaurantId").notNullable().index();
       t.timestamp("createdAt").defaultTo(knex.fn.now());
       t.timestamp("updatedAt").defaultTo(knex.fn.now());
