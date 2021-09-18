@@ -1,5 +1,5 @@
 export type ReservationType = 'breakfast' | 'lunch' | 'dinner';
-export type ReservationStatus = 'breakfast' | 'lunch' | 'dinner';
+export type ReservationStatus = 'canceled' | 'inReview' | 'confirmed';
 
 export type UserReservation = {
   id: number;
