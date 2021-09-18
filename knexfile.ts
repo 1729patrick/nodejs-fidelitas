@@ -1,7 +1,7 @@
 // Update with your config settings.
 //https://devhints.io/knex
 
-require("dotenv/config");
+require('dotenv/config');
 
 export default {
   development: {
@@ -12,7 +12,7 @@ export default {
       password: process.env.DATABASE_PASSWORD,
     },
     migrations: {
-      tableName: "migrations",
+      tableName: 'migrations',
       directory: `${__dirname}/src/database/migrations`,
     },
     seeds: {
@@ -31,7 +31,7 @@ export default {
       max: 10,
     },
     migrations: {
-      tableName: "migrations",
+      tableName: 'migrations',
       directory: `${__dirname}/src/database/migrations`,
     },
     seeds: {
@@ -50,7 +50,7 @@ export default {
       max: 10,
     },
     migrations: {
-      tableName: "migrations",
+      tableName: 'migrations',
       directory: `${__dirname}/src/database/migrations`,
     },
     seeds: {
