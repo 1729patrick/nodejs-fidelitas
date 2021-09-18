@@ -1,11 +1,15 @@
-import { Request, Response } from "express";
-import getReservations from "../../data/user/getReservations";
+import { Request, Response } from 'express';
+import getReservations from '../../data/user/getReservations';
 
-export default async (req: Request, res: Response) => {
+export default async (
+  req: Request<any, any, any, { startDate: string }>,
+  res: Response,
+) => {
   try {
     const { userId } = req;
+    const { startDate } = req.query;
 
-    const reservations = await getReservations(userId);
+    const reservations = await getReservations(userId, { startDate });
 
     return res.json(reservations);
   } catch (err: any) {
