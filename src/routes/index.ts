@@ -23,17 +23,17 @@ export default (app: Express) => {
     }),
   );
 
-  app.use('/auth', [auth]);
-  app.use('/files', [files]);
-  app.use('/restaurants', [restaurants]);
+  app.use('/fidelitas/auth', [auth]);
+  app.use('/fidelitas/files', [files]);
+  app.use('/fidelitas/restaurants', [restaurants]);
 
   app.use(authMiddleware);
-  app.use('/products', [products]);
-  app.use('/achievements', [achievements]);
-  app.use('/addresses', [addresses]);
-  app.use('/user', [user]);
-  app.use('/purchases', [purchases]);
-  app.use('/facilities', [facilities]);
+  app.use('/fidelitas/products', [products]);
+  app.use('/fidelitas/achievements', [achievements]);
+  app.use('/fidelitas/addresses', [addresses]);
+  app.use('/fidelitas/user', [user]);
+  app.use('/fidelitas/purchases', [purchases]);
+  app.use('/fidelitas/facilities', [facilities]);
 
   app.use(errors());
   app.all('*', (_: Request, res: Response) => res.boom.notFound());
