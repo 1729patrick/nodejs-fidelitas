@@ -34,6 +34,7 @@ router.route('/reservations').put(
       kids: Joi.number(),
       babies: Joi.number(),
       userId: Joi.number(),
+      clientNotes: Joi.string().allow(''),
     }),
   }),
   addReservation,
