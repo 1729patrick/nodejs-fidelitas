@@ -8,6 +8,8 @@ import getRestaurantUsers from "../services/restaurants/getRestaurantUsers";
 import deleteRestaurantUser from "../services/restaurants/deleteRestaurantUser";
 import deleteNotifications from "../services/restaurants/deleteNotifications";
 import getRestaurantFacilities from "../services/restaurants/getRestaurantFacilities";
+import getReservations from "../services/restaurants/getReservations";
+import editReservation from "../services/restaurants/editReservation";
 
 const router = Router();
 
@@ -25,6 +27,11 @@ router.use(authMiddleware);
 router.route("/notifications").get(
   getNotifications
 );
+
+router.route("/reservations").get(
+  getReservations
+);
+
 
 router.route("/facilities").get(
   getRestaurantFacilities
@@ -55,6 +62,15 @@ router.route('/notifications/:notificationId').delete(celebrate({
   }),
 }),deleteNotifications);
 
+router.route("/reservations").put(celebrate({
+    [Segments.BODY]: Joi.object().keys({
+      reservationId: Joi.number().required(),
+      status: Joi.string().required(),
+      adminNotes: Joi.string()
+    }),
+  }),
+  editReservation
+);
 
 
 export default router;
