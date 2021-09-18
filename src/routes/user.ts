@@ -15,7 +15,6 @@ router.route('/addresses').get(getAddresses);
 router.route('/payments').get(getPayments);
 router.route('/purchases').get(getPurchases);
 
-
 router.route('/reservations').put(
   celebrate({
     [Segments.BODY]: Joi.object().keys({
@@ -23,11 +22,11 @@ router.route('/reservations').put(
       time: Joi.string()
         .regex(/^([0-9]{2})\:([0-9]{2})$/)
         .required(),
+      type: Joi.string().valid('breakfast', 'lunch', 'dinner').required(),
       adults: Joi.number(),
       kids: Joi.number(),
       babies: Joi.number(),
       userId: Joi.number(),
-
     }),
   }),
   addReservation,

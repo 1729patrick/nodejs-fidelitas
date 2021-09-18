@@ -13,7 +13,7 @@ export async function up(knex: Knex): Promise<void> {
       t.integer('babies').defaultTo(0);
       t.string('clientNotes');
       t.string('adminNotes');
-      t.enum('type', ['breakfast', 'lunch', 'dinner']);
+      t.enum('type', ['breakfast', 'lunch', 'dinner']).notNullable();
       t.enum('status', ['canceled', 'inReview', 'confirmed'])
         .defaultTo('inReview')
         .notNullable();

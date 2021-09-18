@@ -1,15 +1,23 @@
-import { Request, Response } from "express";
-import addReserve from "../../data/user/addReserve";
+import { Request, Response } from 'express';
+import { ReservationBody } from '../../../types/requests/reservation/addReservation';
+import addReserve from '../../data/user/addReserve';
 
-
-export default async (req: Request, res: Response) => {
+export default async (
+  req: Request<any, any, ReservationBody>,
+  res: Response,
+) => {
   try {
-    const { restaurantId, userId } = req;
-    const  {  date, time, adults, kids, babies} = req.body
+    const { restaurantId, userId, userType } = req;
 
-    const addresses = await addReserve(userId,restaurantId, date, time, adults, kids, babies);
+    if (userType !== 'admin' && req.body.userId) {
+      return res.boom.unauthorized(
+        'You cannot add a reservation to another user.',
+      );
+    }
 
-    return res.json(addresses);
+    const reserve = await addReserve(userId, restaurantId, req.body);
+
+    return res.json(reserve);
   } catch (err: any) {
     return res.boom.badRequest(err.message);
   }

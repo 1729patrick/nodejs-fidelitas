@@ -1,11 +1,14 @@
-import { UserReservation } from "../../../types/models/userReservations";
-import { UserReservations } from "../../database";
+import { UserReservation } from '../../../types/models/userReservations';
+import { ReservationBody } from '../../../types/requests/reservation/addReservation';
+import { UserReservations } from '../../database';
 
-export default async (userId: number, restaurantId: number, date: string, time: string, adults: number, kids: number, babies: number): Promise<UserReservation[]> => {
-
-
-  const userReservation = await UserReservations()
-    .insert({date:date, time: time, adults: adults, kids: kids, babies: babies, userId: userId, restaurantId: restaurantId })
+export default async (
+  userId: number,
+  restaurantId: number,
+  reserve: ReservationBody,
+): Promise<UserReservation> => {
+  const [userReservation] = await UserReservations()
+    .insert({ ...reserve, userId, restaurantId })
     .returning('*');
 
   return userReservation;

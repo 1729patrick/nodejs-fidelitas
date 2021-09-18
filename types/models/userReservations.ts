@@ -1,3 +1,6 @@
+export type ReservationType = 'breakfast' | 'lunch' | 'dinner';
+export type ReservationStatus = 'breakfast' | 'lunch' | 'dinner';
+
 export type UserReservation = {
   id: number;
   date: string;
@@ -9,8 +12,8 @@ export type UserReservation = {
   adminNotes?: string;
   userId: number;
   restaurantId: number;
-  type: 'breakfast' | 'lunch' | 'dinner';
-  status: 'canceled' | 'inReview' | 'confirmed';
+  type: ReservationType;
+  status: ReservationStatus;
   createdAt: string;
   updatedAt: string;
 };
