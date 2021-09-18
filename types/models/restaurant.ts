@@ -1,4 +1,4 @@
-export type Restaurant {
+export type Restaurant = {
   id: number;
   name: string;
   description: string;
@@ -6,4 +6,4 @@ export type Restaurant {
   workHoursId: number;
   createdAt: string;
   updatedAt: string;
-}
+};
