@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { ReservationBody } from '../../../types/requests/reservation/addReservation';
+import { ReservationBody } from '../../../types/requests/reservation';
 import addReserve from '../../data/user/addReserve';
 
 export default async (

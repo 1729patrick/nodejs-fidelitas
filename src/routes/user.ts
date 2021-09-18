@@ -8,6 +8,7 @@ import getPayments from '../services/user/getPayments';
 import getPurchases from '../services/user/getPurchases';
 import {
   addReservationValidator,
+  getReservationsValidator,
   updateReservationValidator,
 } from '../validators/reservation';
 import updateReservation from '../services/user/updateReservation';
@@ -15,14 +16,7 @@ import updateReservation from '../services/user/updateReservation';
 const router = Router();
 
 router.route('/notifications').get(getNotifications);
-router.route('/reservations').get(
-  celebrate({
-    [Segments.QUERY]: Joi.object().keys({
-      startDate: Joi.string().isoDate(),
-    }),
-  }),
-  getReservations,
-);
+router.route('/reservations').get(getReservationsValidator, getReservations);
 router.route('/addresses').get(getAddresses);
 router.route('/payments').get(getPayments);
 router.route('/purchases').get(getPurchases);

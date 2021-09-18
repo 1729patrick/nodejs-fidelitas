@@ -1,5 +1,5 @@
 import { UserReservation } from '../../../types/models/userReservations';
-import { ReservationBody } from '../../../types/requests/reservation/addReservation';
+import { ReservationBody } from '../../../types/requests/reservation';
 import { UserReservations } from '../../database';
 
 export default async (
