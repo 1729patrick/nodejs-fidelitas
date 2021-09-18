@@ -16,7 +16,7 @@ router.route('/search').get(
   }),
   searchProducts,
 );
-router.route('/add').put(
+router.route('/add').post(
   celebrate({
     [Segments.BODY]: Joi.object().keys({
       title: Joi.string().required(),

@@ -10,9 +10,7 @@ export default async (
     const { restaurantId, userId, userType } = req;
 
     if (userType !== 'admin' && req.body.userId) {
-      return res.boom.unauthorized(
-        'You cannot add a reservation to another user.',
-      );
+      return res.boom.unauthorized('You cannot add a reserve to another user.');
     }
 
     const reserve = await addReserve(userId, restaurantId, req.body);

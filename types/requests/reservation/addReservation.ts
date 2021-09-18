@@ -1,5 +1,7 @@
 import { ReservationType } from '../../models/userReservations';
 
+export type ReservationParams = { reservationId: string };
+
 export type ReservationBody = {
   userId: number;
   restaurantId: number;
