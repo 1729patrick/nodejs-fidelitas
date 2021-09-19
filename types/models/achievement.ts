@@ -1,17 +1,22 @@
+export type AchievementStatus = 'ACTIVE' | 'DELETED';
 export type AchievementType =
-  | "ACTIVE"
-  | "DELETED";
-
+  | 'shareApp'
+  | 'visitRestaurant'
+  | 'purchasePrice'
+  | 'purchaseEvaluation';
+export type RewardType = 'cash' | 'product' | 'discount';
 
 export type Achievement = {
   id: string;
   title: string;
   description: string;
-  type: "cash" | "product" | "discount";
-  reward: string;
+  type: AchievementType;
+  rewardTitle: string;
+  rewardType: RewardType;
   rewardValue: number;
+  purchasePrice?: number;
   cost: number;
-  status: AchievementType;
+  status: AchievementStatus;
   restaurantId: number;
   createdAt: string;
   updatedAt: string;

@@ -1,25 +1,14 @@
-import database, { Achievements } from "../../database";
-import { Achievement } from "../../../types/models/achievement";
+import { Achievements } from '../../database';
+import { Achievement } from '../../../types/models/achievement';
+import { AchievementBody } from '../../../types/requests/achievement';
 
-export default async ( title: string,
-                       description: string,
-                       type: any,
-                       reward: string,
-                       rewardValue: number,
-                       cost: number,
-                       restaurantId: number): Promise<Achievement[]> => {
-
-  const achievements = await Achievements()
-    .insert({
-      title,
-      description,
-      type,
-      reward,
-      rewardValue,
-      cost,
-      restaurantId
-    })
+export default async (
+  restaurantId: number,
+  achievement: AchievementBody,
+): Promise<Achievement> => {
+  const [achievementCreated] = await Achievements()
+    .insert({ ...achievement, restaurantId })
     .returning('*');
 
-  return achievements;
+  return achievementCreated;
 };

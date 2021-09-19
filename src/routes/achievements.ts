@@ -12,8 +12,16 @@ router.route('/add').post(
     [Segments.BODY]: Joi.object().keys({
       title: Joi.string().required(),
       description: Joi.string().required(),
-      type: Joi.string().required(),
-      reward: Joi.string().required(),
+      type: Joi.string()
+        .required()
+        .valid(
+          'shareApp',
+          'visitRestaurant',
+          'purchasePrice',
+          'purchaseEvaluation',
+        ),
+      rewardType: Joi.string().required().valid('cash', 'product', 'discount'),
+      rewardTitle: Joi.string().required(),
       rewardValue: Joi.number().required(),
       cost: Joi.number().required(),
     }),
