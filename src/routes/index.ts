@@ -13,6 +13,7 @@ import addresses from './addresses';
 import user from './user';
 import purchases from './purchases';
 import facilities from './facilities';
+import referral from './referral';
 
 export default (app: Express) => {
   winston.log('info', '--> Initialisations des routes');
@@ -26,6 +27,7 @@ export default (app: Express) => {
   app.use('/fidelitas/auth', [auth]);
   app.use('/fidelitas/files', [files]);
   app.use('/fidelitas/restaurants', [restaurants]);
+  app.use('/fidelitas/referral', [referral]);
 
   app.use(authMiddleware);
   app.use('/fidelitas/products', [products]);
