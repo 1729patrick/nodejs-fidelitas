@@ -1,7 +1,7 @@
-import { Request, Response } from "express";
-import createUser from "../../data/auth/createUser";
-import { User } from "../../../types/models/user";
-import generateToken from "../../helpers/generateToken";
+import { Request, Response } from 'express';
+import createUser from '../../data/auth/createUser';
+import { User } from '../../../types/models/user';
+import generateToken from '../../helpers/generateToken';
 
 export default async (req: Request<any, any, User>, res: Response) => {
   try {
