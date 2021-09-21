@@ -7,7 +7,7 @@ import deleteRestaurantAchievement from '../services/achievements/deleteRestaura
 const router = Router();
 
 router.route('/').get(getAchievements);
-router.route('/add').post(
+router.route('/').post(
   celebrate({
     [Segments.BODY]: Joi.object().keys({
       title: Joi.string().required(),
