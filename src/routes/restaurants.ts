@@ -9,7 +9,7 @@ import deleteRestaurantUser from '../services/restaurants/deleteRestaurantUser';
 import deleteNotifications from '../services/restaurants/deleteNotifications';
 import getRestaurantFacilities from '../services/restaurants/getRestaurantFacilities';
 import getReservations from '../services/restaurants/getReservations';
-import editReservation from '../services/restaurants/editReservation';
+import updateReserve from '../services/restaurants/updateReserve';
 
 const router = Router();
 
@@ -60,15 +60,17 @@ router.route('/notifications/:notificationId').delete(
   deleteNotifications,
 );
 
-router.route('/reservations').post(
+router.route('/reservations/:reservationId').put(
   celebrate({
-    [Segments.BODY]: Joi.object().keys({
+    [Segments.PARAMS]: Joi.object().keys({
       reservationId: Joi.number().required(),
-      status: Joi.string().required(),
+    }),
+    [Segments.BODY]: Joi.object().keys({
+      status: Joi.string().valid('canceled', 'inReview', 'confirmed').required(),
       adminNotes: Joi.string(),
     }),
   }),
-  editReservation,
+  updateReserve,
 );
 
 export default router;
