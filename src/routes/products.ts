@@ -4,6 +4,7 @@ import getProducts from '../services/products/getProducts';
 import searchProducts from '../services/products/searchProducts';
 import addProduct from '../services/products/addProduct';
 import deleteRestaurantProduct from '../services/products/deleteRestaurantProduct';
+import getProductById from "../services/products/getProductById";
 
 const router = Router();
 
@@ -30,6 +31,15 @@ router.route('/add').post(
     }),
   }),
   addProduct,
+);
+
+router.route('/:productId').get(
+  celebrate({
+    [Segments.PARAMS]: Joi.object().keys({
+      productId: Joi.number().required(),
+    }),
+  }),
+  getProductById,
 );
 
 router.route('/:productId').delete(
