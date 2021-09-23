@@ -1,6 +1,6 @@
 import { celebrate, Joi, Segments } from 'celebrate';
 import { Router } from 'express';
-import getReferralCode from '../services/referral/getReferalCode';
+import getReferralCode from '../services/referral/getReferralCode';
 
 const router = Router();
 

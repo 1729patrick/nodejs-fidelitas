@@ -12,7 +12,8 @@ export async function up(knex: Knex): Promise<void> {
       t.enum('type', ['client', 'admin']).notNullable().defaultTo('client');
       t.string('phone').unique().index().notNullable();
       t.string('email').unique().index().notNullable();
-      t.string('referralCode');
+      t.string('referralCode').notNullable().unique();
+      t.string('invitationCode');
       t.enum('status', ['ACTIVE', 'DELETED']).defaultTo('ACTIVE').notNullable();
       t.integer('restaurantId').notNullable().index();
       t.timestamp('createdAt').defaultTo(knex.fn.now());

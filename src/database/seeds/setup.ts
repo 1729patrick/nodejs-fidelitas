@@ -89,6 +89,7 @@ export async function seed(knex: Knex): Promise<void> {
       phone: '921238413134',
       email: 'pbf',
       status: 'ACTIVE',
+      referralCode: 'patrick1',
       restaurantId: 1,
     },
     {
@@ -99,6 +100,7 @@ export async function seed(knex: Knex): Promise<void> {
       phone: '921238413134134',
       email: 'ts',
       status: 'ACTIVE',
+      referralCode: 'tomas2',
       restaurantId: 1,
     },
   ]);

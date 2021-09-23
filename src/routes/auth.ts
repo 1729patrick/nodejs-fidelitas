@@ -24,7 +24,7 @@ router.route('/register').post(
       type: Joi.string().valid('admin', 'client').default('client'),
       phone: Joi.string().required(),
       email: Joi.string().required(),
-      referralCode: Joi.string(),
+      invitationCode: Joi.string(),
       restaurantId: Joi.number().required(),
     }),
   }),

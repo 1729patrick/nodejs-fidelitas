@@ -12,6 +12,7 @@ import {
   updateReservationValidator,
 } from '../validators/reservation';
 import updateReservation from '../services/user/updateReservation';
+import getAchievements from '../services/user/getAchievements';
 
 const router = Router();
 
@@ -22,6 +23,7 @@ router.route('/payments').get(getPayments);
 router.route('/purchases').get(getPurchases);
 
 router.route('/reservations').post(addReservationValidator, addReservation);
+router.route('/achievements').get(getAchievements);
 
 router
   .route('/reservations/:reservationId')
