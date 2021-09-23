@@ -1,15 +1,17 @@
 import { Request, Response } from 'express';
 import { AchievementBody } from '../../../types/requests/achievement';
-import addAchievements from '../../data/achievements/addAchievements';
+import updateAchievement from "../../data/achievements/updateAchievement";
 
 export default async (
   req: Request<any, any, AchievementBody>,
   res: Response,
 ) => {
   try {
-    const { restaurantId } = req;
 
-    const achievement = await addAchievements(restaurantId, req.body);
+    const {achievementId} = req.params;
+    const {restaurantId} = req;
+
+    const achievement = await updateAchievement( restaurantId, achievementId, req.body);
 
     return res.json(achievement);
   } catch (err: any) {
