@@ -5,10 +5,21 @@ import searchProducts from '../services/products/searchProducts';
 import addProduct from '../services/products/addProduct';
 import deleteRestaurantProduct from '../services/products/deleteRestaurantProduct';
 import getProductById from "../services/products/getProductById";
+import getProductByType from "../services/products/getProductByType";
 
 const router = Router();
 
 router.route('/').get(getProducts);
+
+router.route('/productByType').get(
+  celebrate({
+    [Segments.BODY]: Joi.object().keys({
+      productType: Joi.string().required(),
+    }),
+  }),
+  getProductByType
+);
+
 router.route('/search').get(
   celebrate({
     [Segments.QUERY]: Joi.object().keys({
@@ -50,5 +61,7 @@ router.route('/:productId').delete(
   }),
   deleteRestaurantProduct,
 );
+
+
 
 export default router;

@@ -7,7 +7,6 @@ export default async (
   res: Response,
 ) => {
   try {
-
     const {achievementId} = req.params;
     const {restaurantId} = req;
 
