@@ -90,6 +90,7 @@ export async function seed(knex: Knex): Promise<void> {
       email: 'pbf',
       status: 'ACTIVE',
       referralCode: 'patrick1',
+      invitationCode: 'tomas2',
       restaurantId: 1,
     },
     {
@@ -101,6 +102,7 @@ export async function seed(knex: Knex): Promise<void> {
       email: 'ts',
       status: 'ACTIVE',
       referralCode: 'tomas2',
+      invitationCode: 'patrick1',
       restaurantId: 1,
     },
   ]);
@@ -496,7 +498,7 @@ export async function seed(knex: Knex): Promise<void> {
       type: 'visitRestaurant',
       rewardValue: 1,
       cost: 4,
-      status: 'ACTIVE',
+      status: 'DELETED',
       restaurantId: 1,
     },
   ]);
@@ -631,5 +633,11 @@ export async function seed(knex: Knex): Promise<void> {
       purchaseId: 4,
       productId: 3,
     },
+  ]);
+
+  await knex('purchaseReviews').del();
+
+  await knex('purchaseReviews').insert([
+    { userId: 1, restaurantId: 1, review: 'bom demais!', purchaseId: 1 },
   ]);
 }

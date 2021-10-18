@@ -1,20 +1,19 @@
 import { Knex } from 'knex';
 import onUpdateTrigger from '../../helpers/onUpdateTrigger';
 
-const tableName = 'purchases';
+const tableName = 'purchaseReviews';
 export async function up(knex: Knex): Promise<void> {
   return knex.schema
     .createTable(tableName, t => {
       t.increments('id').primary().unsigned();
-      t.enum('deliveryType', ['delivery', 'local', 'takeAway']).notNullable();
-      t.string('promotionCode');
-      t.double('subTotal').notNullable();
-      t.double('discount').defaultTo(0);
-      t.double('total').notNullable();
-      t.integer('paymentId').notNullable();
-      t.integer('addressId').notNullable();
-      t.integer('userId').notNullable().index();
-      t.integer('restaurantId').notNullable().index();
+      t.string('review').notNullable();
+      t.boolean('rewardComplete').defaultTo(false);
+      t.integer('purchaseId').references('purchases.id').notNullable().index();
+      t.integer('userId').references('users.id').notNullable().index();
+      t.integer('restaurantId')
+        .references('restaurants.id')
+        .notNullable()
+        .index();
       t.timestamp('createdAt').defaultTo(knex.fn.now());
       t.timestamp('updatedAt').defaultTo(knex.fn.now());
     })

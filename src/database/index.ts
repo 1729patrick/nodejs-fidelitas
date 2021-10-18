@@ -14,7 +14,8 @@ import { Restaurant } from '../../types/models/restaurant';
 import { User } from '../../types/models/user';
 import { UserNotification } from '../../types/models/userNotification';
 import { UserReservation } from '../../types/models/userReservations';
-import {Facility} from "../../types/models/facility";
+import { Facility } from '../../types/models/facility';
+import { PurchaseReview } from '../../types/models/purchaseReviews';
 
 const env = process.env.NODE_ENV || 'development';
 
@@ -37,7 +38,10 @@ export const Purchases = () => database<Purchase>('purchases');
 export const PurchaseProducts = () =>
   database<PurchaseProduct>('purchaseProducts');
 export const Payments = () => database<Payment>('payments');
-export const RestaurantFacilities = () => database<Facility>('restaurantFacilities');
+export const RestaurantFacilities = () =>
+  database<Facility>('restaurantFacilities');
 export const Facilities = () => database<Facility>('facilities');
+export const PurchaseReviews = () =>
+  database<PurchaseReview>('purchaseReviews');
 
 export default database;
