@@ -537,6 +537,7 @@ export async function seed(knex: Knex): Promise<void> {
       addressId: 1,
       userId: 1,
       restaurantId: 1,
+      status: 'confirmed',
     },
     {
       deliveryType: 'local',
@@ -548,6 +549,7 @@ export async function seed(knex: Knex): Promise<void> {
       addressId: 2,
       userId: 1,
       restaurantId: 1,
+      status: 'confirmed',
     },
     {
       deliveryType: 'takeAway',
@@ -559,6 +561,7 @@ export async function seed(knex: Knex): Promise<void> {
       addressId: 2,
       userId: 1,
       restaurantId: 1,
+      status: 'confirmed',
     },
     {
       deliveryType: 'delivery',
@@ -570,6 +573,7 @@ export async function seed(knex: Knex): Promise<void> {
       addressId: 3,
       userId: 2,
       restaurantId: 1,
+      status: 'confirmed',
     },
     {
       deliveryType: 'local',
@@ -581,6 +585,7 @@ export async function seed(knex: Knex): Promise<void> {
       addressId: 3,
       userId: 2,
       restaurantId: 1,
+      status: 'confirmed',
     },
     {
       deliveryType: 'takeAway',
@@ -592,6 +597,7 @@ export async function seed(knex: Knex): Promise<void> {
       addressId: 4,
       userId: 2,
       restaurantId: 1,
+      status: 'confirmed',
     },
   ]);
 

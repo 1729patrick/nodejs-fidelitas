@@ -10,6 +10,7 @@ import deleteNotifications from '../services/restaurants/deleteNotifications';
 import getRestaurantFacilities from '../services/restaurants/getRestaurantFacilities';
 import getReservations from '../services/restaurants/getReservations';
 import updateReserve from '../services/restaurants/updateReserve';
+import getPurchases from "../services/restaurants/getPurchases";
 
 const router = Router();
 
@@ -31,6 +32,8 @@ router.route('/reservations').get(getReservations);
 router.route('/facilities').get(getRestaurantFacilities);
 
 router.route('/users').get(getRestaurantUsers);
+
+router.route('/purchases').get(getPurchases);
 
 router.route('/notifications/add').post(
   celebrate({
